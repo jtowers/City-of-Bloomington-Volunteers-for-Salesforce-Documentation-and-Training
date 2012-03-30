@@ -1,0 +1,1426 @@
+Groundwire’s 
+Volunteers for Salesforce Installation Guide 
+version 2.14 
+
+December 10, 2011 
+
+1402 3rd Avenue, Suite 1000 
+Seattle, Washington 98122 
+phone: 206 286 1235 
+fax: 206 260 2797 
+info@groundwire.org 
+
+
+www.groundwire.org 
+
+CONTENTS
+
+1. Overview ....................................................................................................................................................... 4 
+
+
+2. Installation Instructions .............................................................................................................................. 4 
+
+
+2.1 Requirements Before Upgrading .................................................................................................. 4 
+
+
+2.2 Requirements Before Installing ................................................................................................... 5 
+
+
+2.3 Installation Steps.................................................................................................................................... 5 
+
+
+2.4 Requirements: After Installing ..................................................................................................... 7 
+
+
+2.5 Email Notifications & Email Templates................................................................................................ 11 
+
+
+2.6 Customizing the Volunteers Wizard .....................................................................................................13 
+
+
+2.7 Customizing Mass Edit Volunteer Hours..............................................................................................14 
+
+
+3. Configuring Volunteer Signup for your website .........................................................................................14 
+
+
+3.1 Enabling Salesforce Sites .......................................................................................................................14 
+
+
+3.2 Creating a Site........................................................................................................................................15 
+
+
+3.3 Configuring Access ................................................................................................................................15 
+
+
+3.4 Setting the Correct Time Zone ..............................................................................................................16 
+
+
+3.5 Enabling Your Site.................................................................................................................................17 
+
+
+3.6 Testing Your Site ...................................................................................................................................17 
+
+
+3.7 Integrating Volunteer Signup into your web site..................................................................................17 
+
+
+3.8 Integrating Volunteer Job Listings & Signup into your web site ........................................................ 22 
+
+
+3.9 Integrating Job Shift Calendar & Signup into your web site...............................................................26 
+
+
+3.10 Additional Customizations ................................................................................................................. 26 
+
+
+4. Localization and Renaming Labels in Volunteers for Salesforce..............................................................28 
+
+
+4.1 Enabling Localization ........................................................................................................................... 28 
+
+
+www.groundwire.org 
+
+
+Volunteers for Salesforce User's Guide and Volunteers for Salesforce Installation Guide 
+by Groundwire are licensed under a Creative Commons Attribution-ShareAlike 3.0 
+Unported License. 
+
+Permissions beyond the scope of this license may be available at labs@groundwire.org. 
+
+www.groundwire.org 
+
+
+1. OVERVIEW 
+Volunteers for Salesforce is a Salesforce package that can be installed into any Salesforce instance, and 
+used to manage all aspects of your organization’s volunteer management needs. 
+
+Volunteers are managed in Salesforce using Contacts, Campaigns, and several custom objects, 
+summarized below: 
+
+• 
+Volunteer Job – used to specify a job or position that needs to be filled, as well as the skills 
+needed for the job. It is always associated with a specific Campaign, and it includes rollup 
+summary information of the number of volunteers and hours that have been applied to this job. 
+• 
+Volunteer Shift – used to specify dates, times, and number of volunteers needed for a specific 
+Volunteer Job. 
+• 
+Volunteer Hours – used to track the hours a volunteer spends for your organization, including the 
+date(s) worked, the hours spent, and the volunteer job it was for. Can also specify the specific job 
+shift the volunteer filled. Also used to tentatively schedule volunteers for specific job shifts and 
+positions. 
+Volunteer information about Contacts is stored in several custom fields on Contact which include 
+Availability, Skills, Status, and a rollup-summary of the Hours worked. Leads also have some additional 
+custom fields for tracking volunteer information. 
+
+Campaigns have several custom fields added to them to show rollup summary information of the number 
+of hours and number of volunteers who have worked on all Volunteer Jobs in the Campaign. 
+
+2. INSTALLATION INSTRUCTIONS 
+The Groundwire Volunteers for Salesforce package is available as a managed package and source code. 
+Visit the AppExchange for the managed project at 
+http://appexchange.salesforce.com/listingDetail?listingId=a0N30000003JBggEAG, or the Google Code 
+project at http://code.google.com/p/groundwire-volunteers-for-salesforce/ to find the links to the source 
+code. 
+
+2.1 Requirements Before Upgrading 
+Upgrading an older version of Volunteers for Salesforce is easy, but we strongly encourage you to follow 
+all the instructions for first time installation, to make sure you do it correctly. We also strongly 
+recommend you review the Release Notes at http://code.google.com/p/groundwire-volunteers-forsalesforce/
+wiki/ReleaseNotes to find out about new features that might require some configuration on 
+your part to get them working in your Salesforce database. These features are also described in this 
+installation guide. 
+
+www.groundwire.org 
+
+
+2.2 Requirements Before Installing 
+In order to successfully install the package and to have the tests run without any errors, you must ensure 
+that the login used to install the package has permissions to create Campaigns (they must have Marketing 
+User checked in their user account), as well as permissions to install packages. 
+
+Volunteers for Salesforce adds the following number of rollup summary fields: Campaign – 5, Contact – 3, 
+Volunteer Jobs – 5. By default, Salesforce limits you to 10 rollup summary fields per object. You can ask 
+Salesforce support to increase your limit per object, by entering a Support Case to Salesforce Support. If 
+you have 6 or more rollup summary fields on the Campaign object, Volunteers for 
+Salesforce will fail to install. You must have Salesforce increase your rollup summary field limit 
+before installing. 
+
+CREATING A DEFAULT CAMPAIGN RECORD TYPE 
+
+Since the Volunteers package will create a new Campaign Record Type, you should first create a default 
+Campaign Record Type, if you don’t have one. 
+
+1. 
+Go to Setup > App Setup > Customize > Campaigns > Record Types. 
+2. 
+Click on the “New” button. 
+3. 
+Use“—Master—“ in the Existing Record Type picklist. 
+4. 
+Fill in Record Type Label. We suggest “Default” 
+5. 
+Use the Record Type Name that Salesforce fills in, when you fill out the Record Type Label. 
+6. 
+For description, put in “The default campaign record type to use for new campaigns.” 
+7. 
+Check “Active”. 
+8. 
+Check the “Enable For Profile” checkbox in the header, so that all profiles can use this new 
+record type. 
+9. 
+Check the “Make Default” checkbox in the header, so that all profiles will default to using this 
+new record type. 
+10. 
+Click “Next”. 
+11. 
+On the Assign Page Layouts page, choose Apply one layout to all profiles, and select “Campaign 
+layout”, or whatever your default page layout should be. 
+12. 
+Click “Save”. 
+2.3 Installation Steps 
+1. 
+Visit the AppExchange and 
+1.1. Go to the Groundwire Volunteers for Salesforce listing on salesforce.com’s AppExchange. 
+1.2. Click “Get It Now”. 
+www.groundwire.org 
+
+
+1.3. Provide your contact information and click on “Submit.” 
+1.4. 
+Enter your salesforce Username, Password and select whether you’re a Salesforce Administrator, 
+Salesforce User or a Free 30 Day Trial User. When finished, click “Continue.” 
+1.5. 
+Designate if you would like to install the app in your Production (including Developer Edition) or 
+if applicable, in to your Sandbox. 
+1.6. Once you’ve read through salesforce.com’s Terms of Service, click “Continue.” 
+2. Review Package Components, Set Security Levels & Install! 
+2.1. 
+Before installing you will have the option to review all the components of Volunteers for 
+Salesforce. The package name, version, description will also be noted. Simply click “Continue” 
+to proceed. 
+2.2. Volunteers for Salesforce requires access of your salesforce.com objects through the API. 
+Please 
+review and approve the required access by clicking on “Next”. 
+2.3. Choose security levels to determine which user profiles can access Volunteers for Salesforce. 
+We 
+recommend specifying “Grant Access to all Users.” Click “Next” to continue. 
+2.4. Now you’re ready to install the application! Just click the “Install” button and Volunteers for 
+Salesforce will be added into your salesforce.com account. 
+IN A NEW SALESFORCE DATABASE, OR A NEW SALESFORCE DATABASE 
+WITH THE NON PROFIT STARTER PACK, VOLUNTEERS FOR SALESFORCE 
+WILL INSTALL WITH NO APEX TEST FAILURES. IF YOU HAVE MODIFIED YOUR 
+SALESFORCE DATABASE OR INSTALLED ADDITIONAL PACKAGES, THERE IS THE 
+CHANCE THAT NEW VALIDATION RULES WILL CAUSE TESTS TO FAIL, DUE TO 
+VOLUNTEERS’ TEST CODE NOT KNOWING ABOUT THE NEW RESTRICTIONS. IF YOUR 
+INSTALLATION FAILS WITH ERRORS, WE RECOMMEND TRYING AGAIN, CHECKING 
+“IGNORE APEX TEST FAILURES” THAT MAY CAUSE THE INSTALLED APPLICATION NOT 
+TO FUNCTION PROPERLY”. 
+
+2.5. You will receive an email from Salesforce when the package has successfully been installed. 
+3. Completing the Installation with “Deploy” 
+3.1. This is a critical step that frequently is overlooked, because you must do it after you 
+have received email from Salesforce that the installation was successful. 
+3.2. Now that the application has been installed you have the option to immediately deploy the 
+Custom Object components or choose to customize them first before rolling them out. We 
+recommend you deploy now. 
+3.3. Go to Setup > App Setup > View Installed Packages, and click on the Package Name for 
+Groundwire Volunteers for Salesforce. 
+3.4. The Package Details page will show you a listing of all of the package components. 
+Click on 
+“Deploy”. 
+www.groundwire.org 
+
+
+3.5. The Deploy Package page now displays a listing of the custom objects, custom report types, and 
+workflow rules. To proceed, simply click “Deploy”. 
+3.6. Almost done! You’ve now completed the initial installation of Volunteers for Salesforce and you 
+will see a summary screen that displays the application details. In addition “Volunteers” now 
+appears in the AppExchange drop-down menu in the upper right-hand corner of your 
+salesforce.com account. 
+3.7. Follow the remaining notes in the Requirements: After Installation section of this document. 
+2.4 Requirements: After Installing 
+CAMPAIGN RECORD TYPES 
+
+Since Volunteers for Salesforce adds a new Campaign Record Type, you need to make sure that any 
+custom picklist fields you have created, have their appropriate choices and default value specified for the 
+new record type. 
+
+1. 
+Go to Setup > App Setup > Customize > Campaigns > Record Types. 
+2. 
+Click on the label for “Volunteer Campaign” 
+3. 
+In the Picklists Available for Editing section, click on the “Edit” link for each picklist, and makes 
+sure you have appropriate Values and Defaults. 
+UPDATING CONTACT & LEAD PAGE LAYOUTS 
+
+Volunteers for Salesforce adds several custom fields to Leads and Contacts. The following instructions 
+will step you through the process of modifying your page layouts. These instructions assume you have 
+permissions to do this. 
+
+1. 
+Go to Setup > App Setup > Customize > Leads > Page Layouts. 
+2. 
+Click on the “Edit” link for the normal Lead Layout. 
+3. 
+In the set of fields available to add to your layout, scroll to the right, and you will see there are 
+four Volunteer related fields. 
+4. 
+Drag/Drop these into your page layout where you prefer. We suggest you create a Volunteer 
+Information section first. 
+5. 
+Click on the “Save” button. 
+Similarly, for Contacts, do the following: 
+
+1. 
+Go to Setup > App Setup > Customize > Contacts > Page Layouts. 
+2. 
+Click on the “Edit” link for the normal Contact Layout. 
+3. 
+In the set of fields available to add to your layout, scroll to the right, and you will see there are ten 
+Volunteer related fields. 
+NOTE TO UPGRADERS: SOME OF THESE FIELDS WERE ADDED IN SUBSEQUENT 
+VERSIONS, AND THUS REQUIRE YOU TO STILL DO THIS STEP. 
+
+www.groundwire.org 
+
+
+4. 
+Drag/Drop these into your page layout where you prefer. We suggest you create a Volunteer 
+Information section first. 
+5. 
+Click on “Related Lists” from the chooser at the top. 
+6. 
+Scroll to the right, and you will see the Volunteer Hours related list. 
+7. 
+Drag/Drop this related list into your page layout, wherever you prefer. 
+8. 
+Click on the “Save” button. 
+UPDATING VOLUNTEER CAMPAIGN, VOLUNTEER JOB & VOLUNTEER SHIFT PAGE LAYOUTS 
+
+Starting in version 1.17, Volunteers for Salesforce provides several custom buttons for using the Mass 
+Email Volunteers feature. Starting in version 1.53, Volunteers for Salesforce provides several custom 
+buttons for using the Shift Calendar page, and for using the Volunteer Roster report. 
+
+If you are upgrading your installation from an earlier version, you must manually add the appropriate 
+buttons to your page layouts. The following instructions will step you through the process of modifying 
+your page layouts. These instructions assume you have permissions to do this. 
+
+1. 
+Go to Setup > App Setup > Create > Objects. 
+2. 
+Click on the “Volunteer Job” label. 
+3. 
+From the Page Layouts section, click on “Edit” for Volunteer Job Layout. 
+4. 
+In the Layout Editor, click on “Buttons” in the top section. This will display all standard and 
+custom buttons you can add to the page layout. 
+5. 
+Click and drag the “Mass Email Volunteers”, “Shift Calendar”, and “Volunteer Roster” 
+buttons down to the Custom Buttons section near the top of the page layout. 
+6. 
+Click on the “Save” button. 
+7. Perform these same set of steps for the Volunteer Shift custom object. 
+You should also modify the page layout for Volunteer Campaigns. 
+1. 
+Go to Setup > App Setup > Customize > Campaigns > Page Layouts 
+2. 
+Click on the Edit link for the Volunteers Campaign Layout. 
+3. 
+In the Layout Editor, click on “Buttons” in the top section. This will display all standard and 
+custom buttons you can add to the page layout. 
+4. 
+Click and drag the “Shift Calendar” and “Volunteer Roster” buttons down to the Custom 
+Buttons section near the top of the page layout. 
+5. 
+Click on the “Save” button. 
+www.groundwire.org 
+
+
+VOLUNTEER SKILLS & AVAILABILITY 
+
+The Groundwire Volunteers package is designed to be used in an ongoing fashion. There are some field 
+picklists that are used in Leads, Contacts and Volunteer Jobs, that you will want to modify initially, and 
+potentially in the future. Note that modifying these picklists will not affect any information already saved 
+in Salesforce, so changing the values won’t affect your old Volunteer information. 
+
+• 
+Volunteer Skills (a multiselect picklist with various sample skills) 
+• 
+Volunteer Availability (a multiselect picklist with various sample time periods) 
+In order to modify any of these picklists, do the following: 
+1. 
+Go to Setup > App Setup > Customize > Leads > Fields. 
+2. 
+Scroll down to the Custom Fields & Relationships section. 
+3. 
+Click on the label for either “Volunteer Skills” or “Volunteer Availability.” 
+4. 
+From the Picklist Values section, click on the “Del” link for any choices you do not want to 
+use. 
+5. 
+From the Picklist Values section, click on the “New” button to add any new choices you want. 
+6. 
+Follow the same steps for Contacts (Setup, App Setup, Customize, Contacts, Fields). 
+7. Be sure to provide the same set of choices in both the Lead and Contact picklist fields. 
+You must also modify one of these picklists in the Volunteer Job custom object: 
+1. 
+Go to Setup > App Setup > Create > Objects. 
+2. 
+Click on the label for “Volunteer Job.” 
+3. 
+Scroll down to the Custom Fields & Relationships section. 
+4. 
+Click on the label for “Skills Needed.” 
+5. 
+Modify the Picklist Values section to match the choices you have on Contacts and Leads. 
+CUSTOM SETTINGS 
+
+The Groundwire Volunteers for Salesforce package includes a set of custom settings named Volunteers 
+Settings. It includes various fields that you can modify to customize the Volunteers package to work with 
+your Salesforce instance. Here are the settings and their default values: 
+
+• 
+Signup Matches Existing Contacts -Should the page VolunteersSignup try to match the person 
+to an existing Contact (by First Name, Last Name, Email). Default is unchecked. Note that this 
+setting is only used by VolunteersSignup, and not any additional pages. 
+• 
+Signup Creates Contacts If No Match -Should the page VolunteersSignup create new Contact 
+records, if no existing contact is found (or Signup Matches Existing Contacts is unchecked). If this 
+www.groundwire.org 
+
+
+setting is unchecked, it will create Leads when no matches found. Default is unchecked. Note 
+that this setting is only used by VolunteersSignup, and not any additional pages. 
+
+• 
+Signup Bucket Account On Create -The name of the account to use when creating new Contacts 
+from the pages VolunteersSignup, VolunteersSignupFS, VolunteersJobListing, and 
+VolunteersJobListingFS. If you are using the Non Profit Start Pack One-to-One model, leave 
+this setting blank. If you are using the bucket model, set this to the name of the account; usually 
+'Individual'. Default is blank. 
+In order to modify any of these settings, do the following: 
+
+1. 
+Go to Setup > App Setup > Develop > Custom Settings. 
+2. 
+Click on the “Manage” link for Volunteers Settings. 
+3. 
+If the Default Organization Level Value holds settings, click on the “Edit” button. 
+4. 
+If there is no Default Organization Level Value settings, click on the “New” button, and fill out the 
+Volunteers Settings Information. 
+5. 
+You can specify anything for the Name field. 
+6. 
+Click “Save.” 
+SPECIFYING LEAD TO CONTACT FIELD MAPPINGS 
+
+Volunteers for Salesforce includes a VisualForce page you can enable in Salesforce Sites, and integrate 
+into your website. This page enables people to sign up to be a volunteer on your website. Instructions on 
+how to do this are later in this document. If you use this functionality, you have the option having either 
+Lead or Contact records created. If you use Leads, then you will want to specify the Lead Custom Field 
+Mapping so that the volunteer fields on the Lead will be copied over to the Contact when the Lead is 
+converted. 
+
+1. 
+Go to Setup > App Setup > Customize > Leads > Fields. 
+2. 
+Scroll down to the Lead Custom Fields & Relationships section, and click on the “Map Lead 
+Fields” button. 
+3. 
+Specify that Volunteer Availability, Volunteer Notes, Volunteer Skills, and Volunteer Status all 
+map to their associated field on the Contact record. 
+4. 
+Click on the “Save” button. 
+ENSURE LEAD VOLUNTEER STATUS FIELD DEFAULT VALUE 
+
+In versions 1.11 and earlier, Volunteers for Salesforce accidentally had the default value for the Volunteer 
+Status field on Leads set to “New Sign Up”. This would incorrectly cause all new leads to appear as if they 
+were new volunteers. Please do the following to set the default value to null: 
+
+1. 
+Go to Setup > App Setup > Customize > Leads > Fields. 
+2. 
+Scroll down to the Lead Custom Fields section. 
+3. 
+Find the custom Lead field Volunteer Status, and click on its name 
+www.groundwire.org 
+
+
+4. 
+Find the Picklist Values section, and click on the “Edit” link for the New Sign Up value. 
+5. 
+Uncheck the default checkbox and click “Save.” 
+This default value has been correctly set to null in versions 1.12 and later, but if you had previously 
+installed an earlier version, you must still make this manual change. 
+
+ENSURE ACTIVITIES ALLOWED ON VOLUNTEER JOBS & VOLUNTEER SHIFTS 
+
+In version1.17, the Mass Email Volunteers feature was added. This feature allows one to send emails to all 
+the volunteers signed up for a job and/or shift. The feature optionally allows one to log an activity that the 
+email was sent. Creating the activity requires that Volunteer Jobs and Volunteer Shifts have the Track 
+Activities option set. If you are upgrading from an earlier version, this option may not be set and must be 
+manually turned on. 
+
+1. 
+Go to Setup > App Setup > Create > Objects. 
+2. 
+Click on the “Edit” link for Volunteer Job. 
+3. 
+In the Optional Features section, make sure “Allow Activities” is checked. 
+4. 
+Click on “Save.” 
+5. 
+Perform the same set of steps for the Volunteer Shift custom object. 
+ENSURE WORKFLOW FOR VOLUNTEER HOURS IS ACTIVATED 
+
+Most of the Volunteer Reports use the Volunteer Hours End Date field to filter on. There is a workflow 
+rule to set this End Date field if it isn’t filled out when you enter records. You need to ensure that this 
+workflow rule is enabled after installation. 
+
+1. 
+Go to Setup > App Setup > Create > Workflow & Approvals > Workflow Rules. 
+2. 
+Click on the V navigation link to see just the Volunteers workflows. 
+3. 
+Click on the “Activate” link for Volunteer Hours – Set End Date, if it is not enabled. 
+2.5 Email Notifications & Email Templates 
+If you use the Volunteers Signup page or Volunteers Job Listing page on your website, several email 
+notifications will be sent when a new volunteer signup occurs. There are two Workflow Rules which by 
+default, are activated. These are Volunteer Signup – Contact and Volunteer Signup – Lead. If 
+you want to turn these off, do the following: 
+
+1. 
+Go to Setup > App Setup > Create > Workflow & Approvals > Workflow Rules. 
+2. 
+Scroll down to the bottom of the Workflow Rules, and you will see the Volunteer related 
+workflows. 
+3. 
+Click on “Deactivate” to turn them off. 
+The Volunteer Signup – Lead workflow rule is fired when a new lead is created, and the Volunteer 
+Status field is set to “New Sign Up”. 
+
+www.groundwire.org 
+
+
+www.groundwire.org 12 
+The Volunteer Signup – Contact workflow rule is fired when a new or existing contact is edited, and 
+the Volunteer Last Web Signup Date field is changed. Versions earlier than 1.14 would only fire this rule if 
+the contact was newly created and the Volunteer Status field was set to “New Sign Up”. If you have 
+upgraded from a version before 1.14, we recommend editing your rule criteria to the following, so existing 
+contacts will receive thank yous whenever they sign up to volunteer from your website. 
+OR(ISCHANGED( GW_Volunteers__Volunteer_Last_Web_Signup_Date__c ),
+AND(ISNEW(), NOT(ISNULL(GW_Volunteers__Volunteer_Last_Web_Signup_Date__c )))) 
+Both of these Workflow Rules use several Email Alerts. The Volunteer Signup Thank You Email – Contact 
+and Volunteer Signup Thank You Email – Lead both send their email to the volunteer with the From 
+Email Address set to current user’s email address. Due to these rules being run when the website creates 
+the contact, the from address will look like “volunteers Site Guest User”. You should modify these two 
+Email Alerts to use one of your Organization-Wide Addresses. To create an Organization-Wide Address, 
+do the following: 
+1. Go to Setup > Administration Setup > Email Administration > Organization-Wide Addresses. 
+2. Click on the “Add” button. 
+3. Provide a Display Name (e.g., Volunteer Manager) and a valid email address. 
+4. Select “Allow All Profiles to Use this From Address”. 
+5. Click “Save”. 
+6. Salesforce will send a validation email to the email address you have specified, and you must click 
+on the validation link in order to enable this new Organization-Wide Address for use. 
+Once you have a valid Organization-Wide Address you would like to use for these email Thank Yous, do 
+the following: 
+1. Go to Setup > App Setup > Create > Workflow & Approvals > Email Alerts. 
+2. Scroll down to the bottom of Email Alerts, and you will see the Volunteer related email alerts (or 
+you can first choose “Volunteer Email Alerts” from the View picklist). 
+3. Click on the “Edit” link for the appropriate Volunteer Signup Thank You Email Alert. 
+4. Scroll to the bottom of the page, and you can choose any of your Organization-Wide Addresses 
+from the From Email Address picklist. 
+5. Click “Save”. 
+6. Remember to do the same steps on the other Thank You email alert. 
+The Volunteer Signup Notification Email – Contact and Volunteer Signup Notification Email – Lead both 
+send their email to the Contact or Lead’s owner. Due to these rules being run when the website creates 
+the contact, the record owner is set to “volunteers Site Guest User”. If the contact already existed in the 
+database, then the email will be sent to the current record owner. If you prefer having these notification 
+emails sent to your Volunteer Manager, regardless of who owns the actual Lead or Contact record, you 
+should modify the Recipients of these two alerts. 
+12 
+The Volunteer Signup – Contact workflow rule is fired when a new or existing contact is edited, and 
+the Volunteer Last Web Signup Date field is changed. Versions earlier than 1.14 would only fire this rule if 
+the contact was newly created and the Volunteer Status field was set to “New Sign Up”. If you have 
+upgraded from a version before 1.14, we recommend editing your rule criteria to the following, so existing 
+contacts will receive thank yous whenever they sign up to volunteer from your website. 
+OR(ISCHANGED( GW_Volunteers__Volunteer_Last_Web_Signup_Date__c ),
+AND(ISNEW(), NOT(ISNULL(GW_Volunteers__Volunteer_Last_Web_Signup_Date__c )))) 
+Both of these Workflow Rules use several Email Alerts. The Volunteer Signup Thank You Email – Contact 
+and Volunteer Signup Thank You Email – Lead both send their email to the volunteer with the From 
+Email Address set to current user’s email address. Due to these rules being run when the website creates 
+the contact, the from address will look like “volunteers Site Guest User”. You should modify these two 
+Email Alerts to use one of your Organization-Wide Addresses. To create an Organization-Wide Address, 
+do the following: 
+1. Go to Setup > Administration Setup > Email Administration > Organization-Wide Addresses. 
+2. Click on the “Add” button. 
+3. Provide a Display Name (e.g., Volunteer Manager) and a valid email address. 
+4. Select “Allow All Profiles to Use this From Address”. 
+5. Click “Save”. 
+6. Salesforce will send a validation email to the email address you have specified, and you must click 
+on the validation link in order to enable this new Organization-Wide Address for use. 
+Once you have a valid Organization-Wide Address you would like to use for these email Thank Yous, do 
+the following: 
+1. Go to Setup > App Setup > Create > Workflow & Approvals > Email Alerts. 
+2. Scroll down to the bottom of Email Alerts, and you will see the Volunteer related email alerts (or 
+you can first choose “Volunteer Email Alerts” from the View picklist). 
+3. Click on the “Edit” link for the appropriate Volunteer Signup Thank You Email Alert. 
+4. Scroll to the bottom of the page, and you can choose any of your Organization-Wide Addresses 
+from the From Email Address picklist. 
+5. Click “Save”. 
+6. Remember to do the same steps on the other Thank You email alert. 
+The Volunteer Signup Notification Email – Contact and Volunteer Signup Notification Email – Lead both 
+send their email to the Contact or Lead’s owner. Due to these rules being run when the website creates 
+the contact, the record owner is set to “volunteers Site Guest User”. If the contact already existed in the 
+database, then the email will be sent to the current record owner. If you prefer having these notification 
+emails sent to your Volunteer Manager, regardless of who owns the actual Lead or Contact record, you 
+should modify the Recipients of these two alerts. 
+
+1. 
+Go to Setup > App Setup > Create > Workflow & Approvals > Email Alerts. 
+2. 
+Scroll down to the bottom of Email Alerts, and you will see the Volunteer related email alerts. 
+3. 
+Click on the “Edit” link for the appropriate Volunteer Signup Notification Email Alert. 
+4. 
+Modify the Recipients list. 
+5. 
+Click on the “Save” button. 
+The various Volunteer Email Alerts all use Email Templates, that you will want to customize for your 
+organization. These email templates are also made available to the Mass Email Volunteers page. 
+
+1. 
+Go to Setup > Administration Setup > Communication Templates > Email Templates. 
+2. 
+Choose the “Volunteers Email Templates” folder, and you will see the Volunteer related 
+templates. 
+3. 
+Click on the “Edit” link for each one, and modify as appropriate. 
+4. 
+Click on the “Save” button. 
+2.6 Customizing the Volunteers Wizard 
+With version 1.16, Volunteers for Salesforce now allows you to specify the Campaign fields to display on 
+the Volunteers Wizard, using a Field Set. This allows you to include custom fields and standard fields that 
+you want the user to fill out. Here are the steps to customize the Field Set. 
+
+1. 
+Go to Setup > App Setup > Customize > Campaigns > Field Sets 
+2. 
+Click on the “Edit” link for VolunteersWizardFS 
+3. 
+This will display a page that is very similar to the Page Layout Editor. 
+4. 
+To add fields to the Field Set, just drag them from the top section into the “In the Field Set” 
+box. 
+5. 
+To remove fields from the Field Set, mouse over the field, and click the X icon. 
+6. 
+To reorder fields in the Field Set, just use drag and drop. 
+7. 
+To make a field required, mouse over the field, and click the Tools icon. 
+8. 
+When you are done, click “Save.” 
+9. 
+Note that even though the editor allows you to drag related fields from various lookup fields, the 
+VolunteersWizardFSpage only supports fields directly on Campaigns. 
+Also starting in version 1.16, Volunteers for Salesforce will copy over all fields, including custom fields, on 
+Volunteer Jobs and Volunteer Shifts, if the user chooses the Clone Existing Campaign functionality in the 
+Volunteers Wizard. 
+
+www.groundwire.org 
+
+
+2.7 Customizing Mass Edit Volunteer Hours 
+With version 1.16, Volunteers for Salesforce now allows you to specify the Volunteer Hour fields to display 
+on the Mass Edit Volunteer Hours page, using a Field Set. This allows you to include custom fields and 
+standard fields that you want the user to fill out. Here are the steps to customize the Field Set. 
+
+1. 
+Go to Setup > App Setup > Create > Objects 
+2. 
+Click on the label for “Volunteer Hours” 
+3. 
+Scroll down the page to the Field Sets section 
+4. 
+Click on the “Edit” link for MassEditVolunteerHours 
+5. 
+This will display a page that is very similar to the Page Layout Editor. 
+6. 
+To add fields to the Field Set, just drag them from the top section into the “In the Field Set” 
+box. 
+7. 
+To remove fields from the Field Set, mouse over the field, and click the X icon. 
+8. 
+To reorder fields in the Field Set, just use drag and drop. 
+9. 
+To make a field required, mouse over the field, and click the Tools icon. 
+10. 
+When you are done, click “Save.” 
+11. 
+Note that even though the editor allows you to drag related fields from various lookup fields, the 
+Mass Edit Volunteer Hours page only supports fields directly on Volunteer Hours. 
+3. CONFIGURING VOLUNTEER 
+SIGNUP FOR YOUR WEBSITE 
+If you have a website, and you would like to have a page on your site where people can sign up to express 
+their interest in volunteering, Volunteers for Salesforce provides the page you need. Volunteers for 
+Salesforce also provides a separate page that you can host on your website to display available volunteer 
+jobs (and optionally shifts), and allow volunteers to signup for these specific job (and shifts). Follow the 
+instructions below to enable this functionality. 
+
+3.1 Enabling Salesforce Sites 
+In order to display Salesforce forms as web pages, you must enable Sites in your Salesforce database. 
+
+1. 
+Go to Setup > App Setup > Develop > Sites 
+2. 
+Specify the name you want to use for your domain. Note that once set, you cannot modify 
+this name, so make sure you use an appropriate name for your company. The pages 
+that Volunteers for Salesforce provides you will be hosted within pages owned by your website, so 
+the actual Sites domain name will not be visible to users. But you may have future needs that 
+would expose Sites pages directly to the user, so you should still choose an appropriate name. 
+www.groundwire.org 
+
+
+3. Click on “Check Availability,” to make sure the name you gave is not already taken. 
+4. 
+Read and check the “Sites Terms of Use.” 
+5. Click “Register My Force.com Domain.” 
+3.2 Creating a Site 
+Now that you have enabled Salesforce Sites, you will create an actual site to host the pages for Volunteers 
+for Salesforce. 
+
+1. 
+Go to Setup > App Setup > Develop > Sites. 
+2. 
+Click on the “New” button. 
+3. On the Site Edit page, fill in the fields with red vertical bars. 
+a. 
+Site Label – you can use anything, but we recommend “Volunteers”. 
+b. Site Name – you can use anything, but we recommend “Volunteers”. 
+c. 
+Site Contact – choose the appropriate system administrator in your organization. 
+d. 
+Active Site Home Page – you can leave this to the default UnderConstruction page that 
+Salesforce provided. 
+e. 
+All other fields can be ignored. 
+IF YOU DO ADD A VALUE TO THE DEFAULT WEB ADDRESS FIELD, MAKE SURE YOU 
+INCLUDE THAT VALUE WHEN CONSTRUCTING URL’S TO THE SITES PAGES. 
+
+4. 
+Click on “Save.” 
+3.3 Configuring Access 
+You now need to enable the specific Visualforce pages and classes that will be used on your Site. If you 
+fail to do these steps, when you run your pages from Sites, fields will not allow editing. 
+
+1. 
+Go to Setup > App Setup > Develop > Sites. 
+2. Click on the label for your site to go to its detail page. 
+3. Click on “Public Access Settings.” 
+4. 
+Scroll down to the Enabled Visualforce Page Access section, and click on “Edit.” 
+Click on GW_Volunteers.VolunteersSignupto select it, and then click on the “Add” button. 
+5. 
+Click on GW_Volunteers.VolunteersJobListingto select it, and then click on the “Add” 
+button. 
+6. 
+In version 1.14 and later, also click on GW_Volunteers.VolunteersSignupFSto select it, and 
+then click on the “Add” button. 
+www.groundwire.org 
+
+
+In version 1.14 and later, also click on GW_Volunteers.VolunteersJobListingFSto select 
+it, and then click on the “Add” button. 
+
+In version 2.0 and later, also click on GW_Volunteers.JobCalendarto select it, and then click 
+on the “Add” button. 
+
+7. 
+Click on “Save.” 
+8. 
+You should be back at the Profile page for your Site. 
+9. 
+Click on “Edit.” 
+10. 
+Scroll down to the Standard Object Permissions section, and click on the Read and Create 
+checkboxes for Accounts, Campaigns, Contacts and Leads. Also click on the Read checkbox for 
+Documents. 
+11. 
+Scroll down to the Custom Object Permissions section, and click on the “Read” and “Create” 
+checkboxes for Volunteer Hours, Volunteer Jobs, and Volunteer Shifts. 
+12. 
+If you are using the Non Profit Starter Pack, or other custom configuration that includes a 
+Household object, you should also click on Read and Create for Households. 
+13. 
+Click on “Save.” 
+14. 
+Scroll to the Field-Level Security section. 
+15. 
+For the Standard Objects (Account, Campaigns, Contacts, Leads), click on the “View” link, and 
+make sure that any fields you specify in the field sets for your web pages (described later), have 
+Visible checked. 
+16. 
+Make any edits needed, and then click on “Save.” 
+17. 
+For the Custom Objects, Volunteer Jobs, Volunteer Shifts, and Volunteer Hours, make sure that 
+any custom field you specify in the field sets for sets for your web pages (described later), have 
+“Visible” checked. 
+18. 
+Make any edits needed, and then click on “Save.” 
+3.4 Setting the Correct Time Zone 
+You need to tell Salesforce what time zone to display Job Shift dates & times with. It defaults to GMT, 
+which probably isn’t what you want! 
+
+1. 
+Go to Setup > App Setup > Develop > Sites. 
+2. 
+Click on the label for your site to go to its detail page. 
+3. 
+Click on “Public Access Settings.” 
+4. 
+Click on “View Users.” 
+5. 
+Click on the “Edit” link for the “Site Guest User, Volunteers” profile. 
+6. 
+In the Locale Settings section, choose the correct time zone from the Time Zone dropdown. 
+www.groundwire.org 
+
+
+7. 
+Click on “Save.” 
+3.5 Enabling Your Site 
+We now must enable your site. 
+
+1. 
+Go to Setup > App Setup > Develop > Sites. 
+2. Click on the “Activate” link for your site. 
+3.6 Testing Your Site 
+Now you should test to make sure your Site is set up correctly and page displays. 
+
+1. 
+Go to Setup > App Setup > Develop > Sites. 
+2. Click on the “Site URL” for your site. 
+3. 
+This will display the default home page, which is the Under Construction page if you didn’t 
+change it in your Site details page. 
+Now go to your browser’s address bar, and add ‘/GW_Volunteers__VolunteersSignup’ to 
+the end of your site’s URL. Note that there is a double underscore in the URL, between 
+GW_Volunteersand VolunteersSignup. This should display the Volunteers Signup form. 
+So your full URL will look something like 
+http://mycompany.force.com/GW_Volunteers__VolunteersSignup. 
+
+If you had specified a label for the Default Web Address field on the Site, then include this label in 
+the URL. So it might look like: 
+
+http://mycompany.force.com/sitelabel/GW_Volunteers__VolunteersSignup. 
+
+4. 
+Enter some test data in the form and click on “Submit.” 
+5. 
+You should have successfully created a new lead or contact (depending on your custom settings) 
+and their Volunteer Status field will be set to “New Sign Up”. 
+3.7 Integrating Volunteer Signup into your web site 
+Now that you have the form working as a stand alone web page, you will want to integrate it into a page on 
+your website. The way to accomplish this is by using an <IFRAME> HTML tag to insert the Volunteer 
+Signup page into a page from your website. This might look something like: 
+
+<iframe src="http://davidhabibnpsp-developeredition.
+na7.force.com/sitelabel/GW_Volunteers__VolunteersSignup" 
+frameborder="0" scrolling="false" height="600" width="500"></iframe> 
+
+
+
+THERE IS A DOUBLE UNDERSCORE IN THE URL, BETWEEN GW_VOLUNTEERS AND 
+VOLUNTEERSSIGNUP. 
+
+Here’s what the form looks like on a website with minimal styling: 
+
+www.groundwire.org 
+
+
+STYLING THE VOLUNTEER SIGNUP FORM 
+
+The Volunteer Signup form page uses a cascading style sheet (css) that is a css file document that the 
+package installs into your Salesforce database. You are able to modify the contents of this file to provide 
+your own css that has the styles defined to match your website. 
+
+1. 
+Gotothe“Documents” tab, which you may have to click on the ‘+’ tab to get access to. 
+2. 
+Choose the “Volunteers Documents” folder. 
+3. 
+Click on the “View” link for VolunteersSignupCSS.css 
+4. 
+This will display the CSS used by the Volunteers Signup form. 
+5. 
+Copy the CSS into your favorite editor, modify it as appropriate, and save it to your local machine 
+as VolunteersSignupCSS.css 
+6. 
+Note that the CSS has a commented out section with wild and unpleasant css, just to show you 
+how different you can make the form look. (An example picture follows these steps.) 
+www.groundwire.org 
+
+
+7. 
+When you are ready to upload your CSS file, continue these steps 
+8. 
+Gotothe“Documents” tab, which you may have to click on the ‘+’ tab to get access to 
+9. 
+Choose the “Volunteers Documents” folder 
+10. 
+Click on the name “VoluntersSignupsCSS.css” 
+11. 
+Click on “Replace Document” 
+12. 
+In the Replace page, enter the path to your local copy of VolunteersSignupCSS.cssand then 
+click on “Replace Document” 
+13. 
+You should now be able to refresh the Volunteer Signup page on your website, and see the new 
+styles. 
+WHEN NEW VERSIONS OF VOLUNTEERS FOR SALESFORCE MODIFY THIS FILE, 
+SALESFORCE WILL NOT UPDATE YOUR DOCUMENT, WHEN YOU UPGRADE. YOU 
+MUST MANUALLY EDIT THE CSS FILE AND UPLOAD IT TO INCLUDE NEWER 
+MARKUP. RELEASE NOTES WILL CALL OUT WHEN THIS IS NECESSARY. 
+
+www.groundwire.org 
+
+
+Here’s a sample of the types of styling you can change: 
+
+
+With the above example you can see that when the Signup form is IFRAME’d into your page, it only 
+occupies the colored portion of this page. The remainder of the page is controlled by you and your web 
+site. 
+
+CUSTOMIZING THE FIELDS DISPLAYED ON THE VOLUNTEER SIGNUP FORM 
+
+With version 1.14, Volunteers for Salesforce now includes a Volunteer Sign Up page that you can 
+customize with Field Sets. Field Sets allow a Salesforce administrator to specify which fields to include on 
+a Visualforce page. To use this new customizable page, have your URL refer to 
+GW_Volunteers__VolunteersSignupFS, by just adding the FS to the end of the page name. 
+
+
+THIS NEW PAGE DOES NOT SUPPORT CREATING LEADS. IF YOU NEED VOLUNTEER 
+SIGN UPS TO COME IN AS LEADS, WE RECOMMEND YOU USE OUR ORIGINAL 
+VOLUNTEERSSIGNUP PAGE, OR SALESFORCE’S WEB-TO-LEAD FORM. 
+
+www.groundwire.org 
+
+
+VolunteersSignupFSwill always first include the FirstName, LastName, and Email fields, since these 
+are used for matching against existing Contacts. You are able to then specify the additional Contact fields 
+you want on the form by modifying the VolunteersSignupFSfield set. Here’s how to do that: 
+
+12. 
+Go to Setup > App Setup > Customize > Contacts > Field Sets 
+13. 
+Click on the “Edit” link for VolunteersSignupFS 
+14. 
+This will display a page that is very similar to the Page Layout Editor. 
+15. 
+To add fields to the Field Set, just drag them from the top section into the “In the Field Set” 
+box. 
+16. 
+To remove fields from the Field Set, mouse over the field, and click the X icon. 
+17. 
+To reorder fields in the Field Set, just use drag and drop. 
+18. 
+To make a field required, mouse over the field, and click the Tools icon. 
+19. 
+When you are done, click “Save.” 
+20. Note that even though the editor allows you to drag related fields from various lookup fields, the 
+VolunteersSignupFSpage only supports fields directly on Contacts. 
+21. 
+Make sure that the fields you have specified in the field set are enabled for the volunteer sites user 
+profile. See the Configuring Access section above for details. 
+LOCALIZING THE VOLUNTEER SIGNUP FORM 
+
+With version 1.14, Volunteers for Salesforce supports localization into French. You can also localize into 
+additional languages, which will be explained in a later section. In order to have VolunteersSignupFS 
+display in a different language, you must include a parameter on the URL: 
+
+• 
+Language – The language used to display labels that have associated translations in Salesforce. 
+This value overrides the language of the user viewing the page. Possible values for this attribute 
+include any language keys for languages supported by Salesforce, for example, "en" or "en-US". 
+Volunteers for Salesforce also supports “fr” for French. An example: 
+GW_Volunteers__VolunteersSignupFS?Language=fr 
+
+
+When you use the Language parameter, all of the field names, picklist values, and messages will be 
+displayed in the specified language (assuming a translation is provided). Please review the section 
+Enabling Localization in Volunteers for Salesforce to find out additional steps you must take. 
+
+UPLOADING DOCUMENTS WITH THE VOLUNTEERS SIGNUP FORM 
+
+With version 1.17, the VolunteersSignupFSpage and VolunteersJobListingFSpage also support 
+a URL parameter to tell the page to include a file upload button, thus allowing a document to be stored 
+along with the matched or created Contact record. 
+
+• 
+FileUploadLabel – a string to specify that a file upload button should be included on the page. 
+The string is displayed as a label in the left column, next to the button. If the label contains 
+spaces, you need to encode them in the URL with %20. An example: 
+www.groundwire.org 
+
+
+GW_Volunteers__VolunteersSignupFS?FileUploadLabel=Please%20include%20yo 
+ur%20resume 
+
+
+3.8 Integrating Volunteer Job Listings & Signup into your web 
+site 
+Similar to hosting the VolunteersSignuppage in your website, you can host the 
+VolunteersJobListingor VolunteersJobListingFSpage as well. Use and IFRAME tag similar to 
+the following: 
+
+<iframe src="http://davidhabibnpsp-developer-
+edition.na7.force.com/sitelabel/GW_Volunteers__VolunteersJobListing" 
+frameborder="0" scrolling="false" height="600" width="500"></iframe> 
+
+
+
+THERE IS A DOUBLE UNDERSCORE IN THE URL, BETWEEN GW_VOLUNTEERS AND 
+VOLUNTEERSJOBLISTING. 
+
+The VolunteersJobListingpage supports the following parameters on its URL: 
+
+• 
+campaignId – a 15 character Salesforce ID of the Campaign to display jobs from. If not provided, 
+the page will look at all Campaigns that are active. In either case, the page will then display all 
+jobs that have “Display on Website” checked. 
+• 
+ShowJobName – if set to 0 (zero), the job name is not displayed. Defaults to 1. 
+• 
+ShowDescription – if set to 0 (zero), the job’s description rich text field is not displayed. Defaults 
+to 1. 
+• 
+ShowLocationAddress – if set to 0 (zero), the job’s address is not displayed. Defaults to 1. 
+• 
+ShowLocationInfo – if set to 0 (zero), the job’s location information rich text field is not 
+displayed. Defaults to 1. 
+• 
+ShowSkills – if set to 1, the job’s desired skills are shown as a semicolon separated list. Defaults 
+to 0 (zero). 
+• 
+ShowShifts – if set to 0 (zero), the job’s shifts are not displayed, and just a single Sign Up button 
+per job is displayed. Note that if Shifts are being displayed, but a given job has no shifts, then that 
+job will just have a single Sign Up button displayed. Defaults to 1. 
+VolunteersJobListingFSalso supports these additional parameters: 
+
+• 
+Language – The language used to display labels that have associated translations in Salesforce. 
+This value overrides the language of the user viewing the page. Possible values for this attribute 
+include any language keys for languages supported by Salesforce, for example, "en" or "en-US". 
+Volunteers for Salesforce also supports “fr” for French. 
+• 
+DateFormat – a formatting string that controls how Shift dates are displayed. It handles the 
+following tokens: 
+www.groundwire.org 
+
+
+o 
+MM – displays the numerical month, starting with a 0 if less than 10. (01 – 12) 
+o 
+M – displays the numerical month, with no starting 0. (1-12) 
+o 
+dd – displays the calendar day, with a starting 0 if < 10. (01 – 31) 
+o 
+d – displays the calendar day, with no starting 0. (1 – 31) 
+o 
+yyyy – displays a four digit year. (eg. 2011) 
+o 
+yy – displays a two digit year. (eg. 11) 
+The default DateFormat string used, if not specified, is “m/d/yyyy”. 
+
+• 
+TimeFormat – a formatting string that controls how Shift times are displayed. It handles the 
+following tokens: 
+o 
+hh – displays the hour from 1 -12, with a leading zero if less than 10. (01 – 12) 
+o 
+h – displays the hour from 1 – 12, with no leading zero. (1 – 12) 
+o 
+HH – displays the hour from 1 – 23, with a leading zero if less than 10. (01 – 23) 
+o 
+H – displays the hour from 1 – 23, with no leading zero. (1 – 23) 
+o 
+mm – displays the minutes, with a leading zero if less than 10. (00 – 59) 
+o 
+m – displays the minutes, with no leading zero. (0-59) 
+o 
+tt – displays the time period as am or pm. 
+The default TimeFormat string used, if not specified, is “h:mm tt”. 
+
+• 
+FileUploadLabel – a string to specify that a file upload button should be included on the signup 
+dialog. The string is displayed as a label in the left column, next to the button. If the label 
+contains spaces, you need to encode them in the URL with %20. An example: 
+GW_Volunteers__VolunteersJobListingFS?FileUploadLabel=Please%20include% 
+20your%20resume 
+
+
+To specify parameters on a URL, you use the format: 
+
+baseurl?param1=value1&param2=value2&param3=value3.... 
+
+
+So your URL might look like: 
+
+http://mycompany.force.com/sitelabel/GW_Volunteers__VolunteersJobListin
+gFS?ShowLocationAddress=0&ShowSkills=1&Language=fr&DateFormat=yyyy-MMdd&
+TimeFormat=HH:mm 
+
+
+STYLING THE VOLUNTEER JOB LISTING FORM 
+
+The VolunteersJobListingpage uses a cascading style sheet (css) that is a css file document that the 
+package installs into your Salesforce database. You are able to modify the contents of this file to provide 
+your own css that has the styles defined to match your website. Follow the same instructions that are 
+provided for the VolunteersSignuppage. The only difference is that the css file is called 
+VolunteersJobListingCSS.css. 
+
+Here’s what the form looks like with minimal styling: 
+
+www.groundwire.org 
+
+
+CUSTOMIZING THE FIELDS DISPLAYED ON THE VOLUNTEER JOB LISTING FORM 
+
+With version 1.14, Volunteers for Salesforce now includes a Volunteer Job Listing page whose signup 
+dialog you can customize with Field Sets. Field Sets allow a Salesforce administrator to specify which 
+fields to include on a Visualforce page. To use this new customizable page, have your URL refer to 
+GW_Volunteers__VolunteersJobListingFS, by just adding the FS to the end of the page name. 
+
+The VolunteersJobListingFSsignup dialog will always first include the FirstName, LastName, and 
+Email fields, since these are used for matching against existing Contacts. You are able to then specify the 
+additional Contact fields you want on the form by modifying the Contact VolunteersJobListingFS 
+field set. You are also able to specify any Volunteer Hours fields you would like on the signup dialog, by 
+modifying the Volunteer Hours VolunteersJobListingFSfield set. Modifying these field sets is as 
+described under the previous section for the VolunteersSignupform. 
+
+For Contact fields 
+
+1. Go to Setup > App Setup > Customize > Contacts > Field Sets 
+2. Click on the “Edit” link for VolunteersJobListingFS. 
+www.groundwire.org 
+
+
+3. Do your edits as appropriate, and then click “Save.” 
+For Volunteer Hours fields 
+
+1. Go to Setup > App Setup > Create > Objects 
+2. Click on the label for “Volunteer Hours” 
+3. Scroll down to the Field Sets section 
+4. Click on the “Edit” link for VolunteersJobListingFS 
+5. Do your edits as appropriate, and then click “Save.” 
+Make sure that the fields you have specified in the field sets are enabled for the volunteer sites user 
+profile. See the Configuring Access section above for details. 
+
+Here is a sample picture of what the Volunteers Job Listing signup dialog might look like with some 
+customizations: 
+
+
+www.groundwire.org 
+
+
+3.9 Integrating Job Shift Calendar & Signup into your web 
+site 
+Similar to hosting the VolunteersJobListingFSpage in your website, you can host the JobCalendar 
+page as well. Use and IFRAME tag similar to the following: 
+
+<iframe src="http://davidhabibnpsp-developeredition.
+na7.force.com/sitelabel/GW_Volunteers__JobCalendar" 
+frameborder="0" scrolling="false" height="600" width="500"></iframe> 
+
+
+
+THERE IS A DOUBLE UNDERSCORE IN THE URL, BETWEEN GW_VOLUNTEERS AND 
+JOBCALENDAR. 
+
+The JobCalendarpage supports the following parameters on its URL: 
+
+• 
+campaignId – a 15 character Salesforce ID of the Campaign to display job shifts from. If not 
+provided, the page will look at all Volunteer Campaigns that are active. In either case, the page 
+will then display all jobs that have “Display on Website” checked. 
+• 
+volunteerJobId – a 15 character Salesforce ID of a specific job to display shifts from. If provided, 
+this will set the calendar’s date to the date of the first shift for that job. 
+• 
+volunteerShiftId – a 15 character Salesforce ID of a specific job shift to display. If provided, this 
+will set the calendar’s date to the date of the specified Shift. 
+• 
+Language – The language used to display labels that have associated translations in Salesforce. 
+This value overrides the language of the user viewing the page. Possible values for this attribute 
+include any language keys for languages supported by Salesforce, for example, "en" or "en-US". 
+Volunteers for Salesforce also supports “fr” for French. 
+• 
+Print – if set to 1, the calendar will display in a view optimized for printing on a single page. 
+Defaults to 0 (zero). 
+• 
+initialDate – a date and time value specified in GMT which will set the calendar’s current date. 
+• 
+CalendarView – a string that’s either “month”, “agendaWeek”, or “agendaDay”, that set’s the 
+calendar’s initial view. Defaults to “month”. 
+Additionally, the JobCalendarpage supports all of the parameters supported on the 
+VolunteersJobListingFSpage. The VolunteersJobListingFSpage is opened when the user 
+clicks on a shift in the calendar, and these parameters are passed on to the VolunteersJobListingFS 
+page, to control its display and behavior. 
+
+3.10 Additional Customizations 
+CONTROLLING WHEN JOB SHIFTS ARE FULL 
+
+All of the web pages that allow job shift sign up will display a Sign Up link as long as the Shift’s Volunteers 
+Still Needed field is greater than zero. The only volunteers that are counted against this field are those 
+with an Hours Status of “Completed” or “Confirmed”. By default, the web pages create new Volunteer 
+
+www.groundwire.org 
+
+
+Hours records with a Status of “Web Sign Up”. Thus these sign ups will not change the number still 
+needed and the job will continue to allow sign ups from the web page. 
+
+To cause the web page to display a shift as full, one must either change the Status on enough Volunteer 
+Hours records from “Web Sign Up” to “Confirmed”, or one can reduce the Desired # of Volunteers field on 
+the Shift. 
+
+If you want the web sign ups to automatically become confirmed, so the shift will fill up with the first sign 
+ups, you can create a workflow rule to update the Hours Status. 
+
+1. 
+Go to Setup > App Setup > Create > Workflow & Approvals > Workflow Rules 
+2. 
+Click on the “New Rule” button 
+3. 
+In the Select object picklist, choose “Volunteer Hours”, and click on the “Next” button 
+4. 
+Name the rule “Confirm Volunteer Web Signups” or something similar 
+5. 
+In the Evaluation Criteria section, choose “Only when a record is created” 
+6. 
+In the Rule Criteria section, choose Run this rule if the following “criteria are met” 
+7. 
+In the first row, choose “Volunteer Hours: Status” for field, “Equals” for operator, and 
+“Web Sign Up” for value. 
+8. 
+Click on the “Save & Next” button 
+9. 
+In the Immediate Workflow Actions section, click on the “Add Workflow Action” 
+dropdown button, and choose “New Field Update” 
+10. 
+Fill in a Name, and in the Field to Update picklists, choose “Volunteer Hours, Status” 
+11. 
+In the Specify New Field Value section, choose A specific value, and select “Confirmed” 
+12. 
+Click on the “Save” button 
+13. 
+Go back to the Workflow Rules page, and click on the “Activate” link for your new workflow 
+rule. 
+CHANGING THE COLORS USED IN THE JOB SHIFT CALENDAR 
+
+The Job Shift Calendar displays unique colors for each Job in the given month. All shifts for a given job 
+will have the same color. The actual color values are stored in a custom label that you can override, if you 
+want to use different colors. 
+
+You need to first follow the instructions in section 4.1, Enabling Localization, to enable customizing labels. 
+After you have done this, then do the following: 
+
+1. 
+Go to Setup > App Setup > Create > Custom Labels 
+2. 
+Click on the link for “labelColorValues” 
+3. 
+Click on the button for “New Local Translations/Overrides” 
+www.groundwire.org 
+
+
+4. 
+Put your new color names in the Translation Text box, following the same format: double 
+quote each name and separate with commas. 
+5. 
+Click “Save” 
+THE COLORS ARE USED IN ORDER EACH MONTH. SO THE FIRST JOB OF THE MONTH 
+GETS THE FIRST COLOR (WHICH IS USED FOR ALL SHIFTS FROM THIS JOB), THE 
+SECOND JOB GETS THE SECOND COLOR, ETC. 
+
+CONTROLLING THE RECORD TYPE FOR CREATED CONTACTS 
+
+When you use the Job Listing web pages, or you specify the custom setting “Signup Creates Contacts If No 
+Match” for the Volunteers Signup page, Volunteers for Salesforce will create new contacts with no 
+specified contact record type. If you require these newly created contacts to have a specific record type, 
+you can modify one of our Workflow Rules to achieve this. 
+
+1. 
+Go to Setup > App Setup > Create > Workflow & Approvals > Workflow Rules 
+2. Click on the Rule Name link for “Volunteer Signup – Contact” 
+3. 
+In the Workflow Actions section, click on the “Edit” button 
+4. Click on the “Add Workflow Action” dropdown button, and choose “New Field Update” 
+5. Name the Field Update “Set Volunteer Record Type” or something similar 
+6. In the Field to Update picklist, choose “Contact Record Type” 
+7. 
+In the Specify New Field Value section, choose your desired contact record type from the picklist 
+8. 
+Click on “Save” 
+4. LOCALIZATION AND RENAMING 
+LABELS IN VOLUNTEERS FOR 
+SALESFORCE 
+With Volunteers for Salesforce, you are able to override English labels for all the various volunteer 
+terminology. You are also able to translate volunteer terminology into a different language. 
+
+4.1 Enabling Localization 
+Starting with Version 1.14, Volunteers for Salesforce supports English and French. In addition, you can 
+provide support for additional languages, if you can provide translation for all the terms. 
+
+In order to enable localization support, you must turn on the Translation Workbench. 
+
+1. 
+Go to Setup > Administration Setup > Translation Workbench > Translation Settings 
+www.groundwire.org 
+
+
+2. 
+If you have not previously enabled the Translation Workbench, click on the “Enable” button. 
+3. 
+On the Supported Languages page, click the “Edit” link for each Language you want to support 
+4. 
+On the Language Translation Edit page, check the “Active” checkbox 
+5. 
+If you will want to do any additional translating for that language, add the appropriate Users to 
+the Selected List. 
+6. 
+Click on “Save.” 
+If you wish to translate Volunteers for Salesforce into a language that is not currently provided, or you 
+wish to translate terms differently, please refer to Salesforce Help for full instructions on using the 
+Translation Workbench. In addition, please contact Groundwire and let us know about your work. We 
+would like to include additional languages with the Volunteers for Salesforce package. Here are some 
+instructions on typical translations you may want to do. 
+
+TRANSLATE THE CONTACT VOLUNTEER SKILLS PICKLIST 
+
+1. 
+Go to Setup > Administration Setup > Translation Workbench > Translate 
+2. 
+Pick the language that needs a translation in the Language dropdown. 
+3. 
+In the Setup Component dropdown, choose “Picklist Value” 
+4. 
+In the Object dropdown, choose “Contact” 
+5. 
+In the displayed tree control, scroll down and find Volunteer Skills 
+6. 
+Click on the “+” button, and you will see all of the picklist values displayed 
+7. 
+Hover over the middle column for each term, and click on its pencil icon. 
+8. 
+Enter the translation. 
+9. 
+Do this for all picklist values that need translation. 
+10. 
+Click on “Save.” 
+OVERRIDE THE ENGLISH TERM FOR A FIELD OR BUTTON 
+
+1. 
+Go to Setup > Administration Setup > Translation Workbench > Override 
+2. 
+In the Package dropdown, choose “Groundwire Volunteers for Salesforce” 
+3. 
+In the Language dropdown, choose “English” 
+4. 
+In the Setup Component dropdown, choose the appropriate item you want to relabel 
+5. 
+In the Object dropdown, choose the appropriate object that has the item you want to relabel 
+6. 
+In the table that is displayed, hover your mouse over the Label override column in the appropriate 
+row, and click on the pencil icon. 
+www.groundwire.org 
+
+
+7. 
+Enter the new label you want to use. 
+8. 
+Do this for all items you want to relabel. 
+9. 
+Click on “Save.” 
+EXPORTING ALL THE TERMS TO BE TRANSLATED 
+
+If you want to translate Volunteers for Salesforce into a new language, or you want to review all of the 
+translations for a given language, you can export a file with all of the terms to be translated. 
+
+1. 
+Go to Setup > Administration Setup > Translation Workbench > Export 
+2. 
+Choose “Bilingual” 
+3. 
+Click on “Export” 
+4. 
+When the export is complete, you will receive an email from Salesforce that tells you it is 
+complete. 
+5. 
+Gotothe“Documents” tab (if Documents is not one of your tabs, click on the + button, and then 
+click on the Documents link) 
+6. 
+In your My Personal Documents folder, you will find a zip file with the .zip extension. 
+7. 
+Save this file to your computer. 
+8. 
+Decompress this file, to extract its contents. 
+9. 
+You should end up with a .stf file for each language enabled in your Salesforce instance. 
+10. 
+The file is a tab delimited text file. 
+11. 
+You can open it with Excel, and Excel will walk you through import steps. In order for Excel to 
+correctly display accented characters, you should rename the file extension to .txt, so that when 
+you open it in Excel, you will be prompted to provide the delimeter and character set to use. 
+12. 
+Specify Tab for the delimeter. For Language, specify Unicode (UTF-8). 
+13. 
+The file will contain two sections, all Translated terms, and all Untranslated terms. 
+14. 
+For translated terms, you can update the translation by overwriting the current translation, in 
+Column C. 
+15. 
+For untranslated terms, you can specify the translation by overwriting the English term. (Edit 
+Column B, rather than putting it in Column C) 
+16. 
+When you are done, choose “Save” from Excel. 
+17. 
+Excel will ask you whether you want to keep it in the current format or not. Click on “Yes.” 
+18. 
+Close Excel, and if it asks you to save again, just choose “No.” 
+19. 
+Now you must fix one problem that Excel introduces! 
+www.groundwire.org 
+
+
+a. Open the file in Notepad 
+b. Choose the Edit, Replace menu command 
+c. In Find What, type a double quote “ 
+d. Leave Replace with empty 
+e. Click on the Replace All button 
+f. Choose the File Save As menu command 
+g. In the Encoding dropdown, make sure to choose UTF-8 
+h. Click Save 
+20. You are now ready to import the translations, as described below. 
+IMPORTING A TRANSLATION FILE 
+
+1. Go to Setup > Administration Setup > Translation Workbench > Import 
+2. Click on the “Choose File” button 
+3. Select the .stf file from your computer 
+4. Click on the “Import” button 
+5. You will receive email from Salesforce saying whether it succeeded or not. 
+6. You will need to look in the Documents tab for details on any problems encountered. 
+For more details on translating with Salesforce, please refer to Salesforce Help. 
+
+www.groundwire.org 
+
+
