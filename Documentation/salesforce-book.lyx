@@ -6,10 +6,10 @@
 \begin_preamble
 \newcommand{\subtitle}[1]{
   \gdef\@subtitle{#1}
+
 }
 
 \renewcommand{\maketitlepage}[0]{%
-
   \cleardoublepage%
   {%
   \sffamily%
@@ -20,14 +20,14 @@
   \ifdefined\@subtitle
     {\fontsize{18}{40}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\@subtitle}}}%
   \fi
-
   \vfill%
   \fontsize{14}{16}\selectfont\par\noindent\allcaps{\thanklesspublisher}%
   \end{fullwidth}%
   }
   \thispagestyle{empty}%
   \clearpage%
-}
+
+} 
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -125,7 +125,7 @@ begin{marginfigure}
 
 
 \begin_inset Graphics
-	filename C:/Users/jtowers/Dropbox/NH_New_Hope_Files/JT_Current Projects/Salesforce Documentation and Training/Copyright/by-sa.eps
+	filename Images/Copyright/by-sa.eps
 
 \end_inset
 
@@ -138,12 +138,24 @@ status open
 
 \backslash
 caption{
+\backslash
+emph{
 \end_layout
 
 \end_inset
 
-Installing and Configuring Volunteers for Salesforce by John Towers is licensed
- under a 
+Installing and Configuring Volunteers for Salesforce
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ by John Towers is licensed under a 
 \begin_inset CommandInset href
 LatexCommand href
 name "Creative Commons Attribution-ShareAlike 3.0 Unported License."
@@ -151,8 +163,7 @@ target "http://creativecommons.org/licenses/by-sa/3.0/"
 
 \end_inset
 
-.
- Based on a work at 
+Based on a work at 
 \begin_inset CommandInset href
 LatexCommand href
 name "groundwire.org"
@@ -171,7 +182,7 @@ status open
 
 \end_inset
 
-
+ 
 \begin_inset ERT
 status open
 
@@ -184,10 +195,10 @@ end{marginfigure}
 
 \end_inset
 
-Note: Much of this documentation is pulled directly from the app creator's
- own fantastic documentation.
- I have edited, reorganized, and added screenshots for clarity.
- You can view download 
+Much of this documentation is pulled directly from the app creator's own
+ fantastic documentation.
+ I have edited, reorganized, and added screenshots and notes for clarity.
+ You can download 
 \begin_inset CommandInset href
 LatexCommand href
 name "their documentation"
@@ -280,8 +291,8 @@ on, including the date(s) worked, the hours spent, and the volunteer job
 \begin_layout Standard
 \align block
 Volunteer information about Contacts is stored in several custom fields
- on Contact which include Availability, Skills, Status, and a rollup-summary
- of the Hours worked.
+ which include Availability, Skills, Status, and a summary of the Hours
+ worked.
  Leads also have some additional custom fields for tracking volunteer informatio
 n.
  
@@ -289,10 +300,656 @@ n.
 
 \begin_layout Standard
 \align block
-Campaigns have several custom fields added to them to show rollup summary
- information of the number of hours and number of volunteers who have worked
- on all Volunteer Jobs in the Campaign.
+Campaigns have several custom fields added to them to show a summary information
+ of the number of hours and number of volunteers who have worked on all
+ Volunteer Jobs in the Campaign.
  
+\end_layout
+
+\begin_layout Chapter
+Installation Instructions
+\end_layout
+
+\begin_layout Standard
+The Groundwire Volunteers for Salesforce package is available as a managed
+ package and source code.
+ Visit the AppExchange for the managed project 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "http://appexchange.salesforce.com/listingDetail?listingId=a0N30000003JBggEAG"
+
+\end_inset
+
+, or the Google Code project 
+\begin_inset CommandInset href
+LatexCommand href
+name "here"
+target "http://code.google.com/p/groundwire-volunteers-for-salesforce/"
+
+\end_inset
+
+ to find the links to the source code (for advanced users).
+\end_layout
+
+\begin_layout Section
+Requirements Before Installing
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+If you have 6 or more rollup summary fields on the Campaign object, Volunteers
+ for Salesforce will fail to install and you must have Salesforce increase
+ your rollup summary field limit before installing.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\series default
+In order to successfully install the package and to have the tests run without
+ any errors, you must ensure that the login used to install the package
+ has permissions to create Campaigns (they must have Marketing User checked
+ in their user account), as well as permissions to install packages.
+\end_layout
+
+\begin_layout Subsection
+Creating a default Campaign record type (optional)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+Note: This step is optional.
+ It is included so that you may preserve the way Salesforce handles Campaigns
+ by default (which may or may not be useful to your organization).
+ It is safe to skip this step, as it can be done later if you decide you
+ wish to choose between the default Salesforce Campaign and the Volunteers
+ campaign.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the Volunteers package will create a new Campaign Record Type, you
+ should first create a default Campaign Record Type, if you don’t have one.
+\end_layout
+
+\begin_layout Enumerate
+Click on your username in the top right and go down to Setup.
+ 
+\begin_inset Graphics
+	filename Images/usermenu.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the navigation on the left go to App Setup > Customize > Campaigns >
+ Record Types.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/campaign-app-setup.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the “New” button.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/campaign-record-type-new.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Use “—Master—“ in the Existing Record Type picklist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/campaign-record-new-create.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fill in Record Type Label.
+ We suggest “Default” 
+\end_layout
+
+\begin_layout Enumerate
+Use the Record Type Name that Salesforce fills in, when you fill out the
+ Record Type Label.
+ 
+\end_layout
+
+\begin_layout Enumerate
+For description, put in “The default campaign record type to use for new
+ campaigns.” 
+\end_layout
+
+\begin_layout Enumerate
+Check “Active”.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Check the “Enable For Profile” checkbox in the header, so that all profiles
+ can use this new record type.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/campaign-record-profile-settings.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Check the “Make Default” checkbox in the header, so that all profiles will
+ default to using this new record type.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Click “Next”.
+ 
+\end_layout
+
+\begin_layout Enumerate
+On the Assign Page Layouts page, choose Apply one layout to all profiles,
+ and select “Campaign layout”, or whatever your default page layout should
+ be.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/campaign-record-default-layout.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click “Save”.
+\end_layout
+
+\begin_layout Section
+Installation Steps
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Go to http://bitly.com/volunteersSF to visit the Volunteers for Salesforce
+ app on the App Exchange.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Click “Get It Now”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Provide the information that the dialogue asks for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{If you have created a sandbox to test apps in, you can choose to
+ install Volunteers to it.
+ Note, however, that any changes you make in the Sandbox must be reapplied
+ when you install the app in your live deployment.}
+\end_layout
+
+\end_inset
+
+and click 
+\begin_inset Quotes eld
+\end_inset
+
+Continue
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Log in when Salesforce prompts you to.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Review Package Components, Set Security Levels & Install.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Before installing you will have the option to review all the components
+ of Volunteers for Salesforce.
+ The package name, version, description will also be noted.
+ Simply click “Continue” to proceed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Volunteers for Salesforce requires access of your salesforce.com objects
+ through the API.
+ Please review and approve the required access by clicking on “Next”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Choose security levels to determine which user profiles can access Volunteers
+ for Salesforce.
+ We recommend specifying “Grant Access to all Users.” Click “Next” to continue.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Just click the “Install” button and Volunteers for Salesforce will be added
+ into your salesforce.com account
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{INSERT WARNING ABOUT APEX FAILURES}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ You will receive an email from Salesforce when the package has successfully
+ been installed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Completing the Installation with “Deploy”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
