@@ -1,0 +1,16 @@
+I have edited, reorganized and added screenshots to the documentation for the Volunteers for Salesforce app (by Groundwire).
+
+This project is for users who wish to edit this documentation.
+
+The project contains the following folders:
+
+1. Documentation: this is my edited documentation. The contained file is a Lyx document (http://www.lyx.org/). 
+
+2. Copyright: This stores the image for the Creative Commons license used in the Lyx file. 
+
+3. Provided documentation: If you wish to refer to the documentation that this project is based on, I have included it in this folder. 
+
+COPYRIGHT:
+
+Installing and Configuring Volunteers for Salesforce by John Towers is licensed under a (http://creativecommons.org/licenses/by-sa/3.0/) Creative Commons Attribution-ShareAlike 3.0 Unported License. Based on a work at (http://groundwire.org/apps/volunteers-for-salesforce/install-configuration-guide)groundwire.org
+
