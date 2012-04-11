@@ -291,10 +291,7 @@ baselineskip}
 
 \end_inset
 
-
  
-\lang english
-
 \begin_inset ERT
 status open
 
@@ -1917,10 +1914,7 @@ pagebreak
 \end_layout
 
 \begin_layout Enumerate
-Go to Setup > App Setup > Customize > Leads > Fields
- 
-\lang english
-
+Go to Setup > App Setup > Customize > Leads > Fields 
 \begin_inset ERT
 status open
 
@@ -1972,7 +1966,7 @@ status open
  
 \begin_inset Graphics
 	filename Images/lead-custom-fields.png
-	scale 60
+	scale 45
 
 \end_inset
 
@@ -2070,6 +2064,511 @@ status open
 Repeat these steps in Setup > App Setup > Customize > Contacts > Fields.
  Make sure that you make the choices the same for each list in both Contacts
  and Leads.
+\end_layout
+
+\begin_layout Enumerate
+Repeat these steps again in Setup > App Setup > Create Objects for the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Job
+\begin_inset Quotes erd
+\end_inset
+
+ object.
+ 
+\end_layout
+
+\begin_layout Subsection
+Custom Settings
+\end_layout
+
+\begin_layout Standard
+The Groundwire Volunteers for Salesforce package includes a set of custom
+ settings named Volunteers Settings.
+ It includes various fields that you can modify to customize the Volunteers
+ package to work with your Salesforce instance.
+ Here are the settings and their default values:
+\end_layout
+
+\begin_layout Enumerate
+Signup Matches Existing Contacts - Should the page VolunteersSignup try
+ to match the person to an existing Contact (by First Name, Last Name, Email).
+ Default is unchecked.
+ Note that this setting is only used by VolunteersSignup, and not any additional
+ pages.
+\end_layout
+
+\begin_layout Enumerate
+Signup Creates Contacts If No Match - Should the page VolunteersSignup create
+ new Contact records, if no existing contact is found (or Signup Matches
+ Existing Contacts is unchecked).
+ If this setting is unchecked, it will create Leads when no matches found.
+ Default is unchecked.
+ Note that this setting is only used by VolunteersSignup, and not any additional
+ pags 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Leads in Volunteers for Salesforce are much the same as they are
+ for businesses: they represent potential relationships.
+ You can use them to separate prospective volunteers from confirmed volunteers
+ and can track conversions of prospective volunteers to confirmed volunteers.
+ This requires more configuration and upkeep (described in a later section).
+ If you wish to treat all potential volunteers as Contacts, check this box
+ and skip the "Lead to Contact Field Mappings" section.
+ Note that the "Volunteer Status" field for Contacts has a "Prospective"
+ option, meaning you can still separate Confirmed from Prospective volunteers
+ using only Contacts.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Signup Bucket Account On Create - The name of the account to use when creating
+ new Contacts from the pages VolunteersSignup, VolunteersSignupFS, VolunteersJob
+Listing, and VolunteersJobListingFS.
+ If you are using the Non Profit Start Pack One-to-One model, leave this
+ setting blank.
+ If you are using the bucket model, set this to the name of the account;
+ usually 'Individual'.
+ Default is blank.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagebreak
+\end_layout
+
+\end_inset
+
+ To modify these settings do the following:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Custom Settings 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/custom-settings.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Manage
+\begin_inset Quotes erd
+\end_inset
+
+ link for Volunteers Settings.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/custom-settings-manage.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+New
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ (whichever button is availabile).
+\end_layout
+
+\begin_layout Enumerate
+Adjust the settings as you wish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{You can specify anything for the Name field.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Lead to Contact Field Mappings
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{Skip this section if you checked the "Signup Creates Contacts
+ If No Match" option above.}
+\end_layout
+
+\end_inset
+
+Volunteers for Salesforce includes a VisualForce page you can enable in
+ Salesforce Sites, and integrate into your website.
+ This page enables people to sign up to be a volunteer on your website.
+ Instructions on how to do this are later in this document.
+ If you use this functionality, you have the option having either Lead or
+ Contact records created.
+ If you use Leads, then you will want to specify the Lead Custom Field Mapping
+ so that the volunteer fields on the Lead will be copied over to the Contact
+ when the Lead is converted
+.
+\end_layout
+
+\begin_layout Enumerate
+
+Go to Setup > App Setup > Customize > Leads > Fields
+\end_layout
+
+\begin_layout Enumerate
+
+Scroll down to the 
+\begin_inset Quotes eld
+\end_inset
+
+Lead Custom Fields & Relationships
+\begin_inset Quotes erd
+\end_inset
+
+ secton and click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Map Lead Fields
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/lead-map-fields.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Specify that 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Availability
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Notes
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Skills
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Status
+\begin_inset Quotes erd
+\end_inset
+
+ all map to their associated fields on the Contacts record.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/leads-map-page.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Ensure Lead Volunteer Status Field Default Value
+\end_layout
+
+\begin_layout Standard
+This step is only relevant to users upgrading Volunteers for Salesforce.
+ Check the original documentation for instructions on how to check this
+ field.
+\end_layout
+
+\begin_layout Subsection
+Ensure All Activities Allowed on Volunteer Jobs & Volunteer Shifts
+\end_layout
+
+\begin_layout Standard
+This step is only relevant to users upgrading Volunteers for Salesforce.
+ Check the original documentation for instructions on how to check this
+ field.
+\end_layout
+
+\begin_layout Subsection
+Ensure Workflow for Volunteer Hours is Activated
+\end_layout
+
+\begin_layout Standard
+Most of the Volunteer Reports use the Volunteer Hours End Date field to
+ filter on.
+ There is a workflow rule to set this End Date field if it isn’t filled
+ out when you enter records.
+ You need to ensure that this workflow rule is enabled after installation.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create > Workflow & Approvals > Workflow Rules.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-navigation.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the letter 
+\begin_inset Quotes eld
+\end_inset
+
+V
+\begin_inset Quotes erd
+\end_inset
+
+ in navigation links to see just the Volunteers workflows.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-filter.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Click on the “Activate”
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote[][1.1cm]{If the button says "Deactivate" instead of "Activate",
+ the workflow is already activated.
+ Do not click it again or it will deactivate the workflow.}
+\end_layout
+
+\end_inset
+
+ link for Volunteer Hours – Set End Date
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+]
+\begin_inset Graphics
+	filename Images/workflow-hours-activate.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Email Notifications and Email Templates
+\end_layout
+
+\begin_layout Standard
+If you use the Volunteers Signup page or Volunteers Job Listing page on
+ your website, several email notifications will be sent when a new volunteer
+ signup occurs.
+ There are two Workflow Rules which by default, are activated.
+ These are Volunteer Signup – Contact and Volunteer Signup – Lead.
+ If you want to turn these off, do the following:
 \end_layout
 
 \end_body
