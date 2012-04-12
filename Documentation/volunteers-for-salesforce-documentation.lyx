@@ -28,130 +28,6 @@
   \clearpage%
 
 }
-%%
-
-%%
-% If they're installed, use Bergamo and Chantilly from www.fontsite.com.
-% They're clones of Bembo and Gill Sans, respectively.
-%\IfFileExists{bergamo.sty}{\usepackage[osf]{bergamo}}{}% Bembo
-%\IfFileExists{chantill.sty}{\usepackage{chantill}}{}% Gill Sans
-
-%\usepackage{microtype}
-
-%%
-% Just some sample text
-\usepackage{lipsum}
-
-%%
-% For nicely typeset tabular material
-\usepackage{booktabs}
-
-%%
-% For graphics / images
-\usepackage{graphicx}
-
-
-
-% The fancyvrb package lets us customize the formatting of verbatim
-% environments.  We use a slightly smaller font.
-\usepackage{fancyvrb}
-\fvset{fontsize=\normalsize}
-
-%%
-% Prints argument within hanging parentheses (i.e., parentheses that take
-% up no horizontal space).  Useful in tabular environments.
-\newcommand{\hangp}[1]{\makebox[0pt][r]{(}#1\makebox[0pt][l]{)}}
-
-%%
-% Prints an asterisk that takes up no horizontal space.
-% Useful in tabular environments.
-\newcommand{\hangstar}{\makebox[0pt][l]{*}}
-
-%%
-% Prints a trailing space in a smart way.
-\usepackage{xspace}
-
-
-% Prints the month name (e.g., January) and the year (e.g., 2008)
-\newcommand{\monthyear}{%
-  \ifcase\month\or January\or February\or March\or April\or May\or June\or
-  July\or August\or September\or October\or November\or
-  December\fi\space\number\year
-}
-
-
-% Prints an epigraph and speaker in sans serif, all-caps type.
-\newcommand{\openepigraph}[2]{%
-  %\sffamily\fontsize{14}{16}\selectfont
-  \begin{fullwidth}
-  \sffamily\large
-  \begin{doublespace}
-  \noindent\allcaps{#1}\\% epigraph
-  \noindent\allcaps{#2}% author
-  \end{doublespace}
-  \end{fullwidth}
-}
-
-% Inserts a blank page
-\newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
-
-\usepackage{units}
-
-% Typesets the font size, leading, and measure in the form of 10/12x26 pc.
-\newcommand{\measure}[3]{#1/#2$\times$\unit[#3]{pc}}
-
-% Macros for typesetting the documentation
-\newcommand{\hlred}[1]{\textcolor{Maroon}{#1}}% prints in red
-\newcommand{\hangleft}[1]{\makebox[0pt][r]{#1}}
-\newcommand{\hairsp}{\hspace{1pt}}% hair space
-\newcommand{\hquad}{\hskip0.5em\relax}% half quad space
-\newcommand{\TODO}{\textcolor{red}{\bf TODO!}\xspace}
-\newcommand{\ie}{\textit{i.\hairsp{}e.}\xspace}
-\newcommand{\eg}{\textit{e.\hairsp{}g.}\xspace}
-\newcommand{\na}{\quad--}% used in tables for N/A cells
-\providecommand{\XeLaTeX}{X\lower.5ex\hbox{\kern-0.15em\reflectbox{E}}\kern-0.1em\LaTeX}
-\newcommand{\tXeLaTeX}{\XeLaTeX\index{XeLaTeX@\protect\XeLaTeX}}
-% \index{\texttt{\textbackslash xyz}@\hangleft{\texttt{\textbackslash}}\texttt{xyz}}
-\newcommand{\tuftebs}{\symbol{'134}}% a backslash in tt type in OT1/T1
-\newcommand{\doccmdnoindex}[2][]{\texttt{\tuftebs#2}}% command name -- adds backslash automatically (and doesn't add cmd to the index)
-\newcommand{\doccmddef}[2][]{%
-  \hlred{\texttt{\tuftebs#2}}\label{cmd:#2}%
-  \ifthenelse{\isempty{#1}}%
-    {% add the command to the index
-      \index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2}}% command name
-    }%
-    {% add the command and package to the index
-      \index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2} (\texttt{#1} package)}% command name
-      \index{#1 package@\texttt{#1} package}\index{packages!#1@\texttt{#1}}% package name
-    }%
-}% command name -- adds backslash automatically
-\newcommand{\doccmd}[2][]{%
-  \texttt{\tuftebs#2}%
-  \ifthenelse{\isempty{#1}}%
-    {% add the command to the index
-      \index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2}}% command name
-    }%
-    {% add the command and package to the index
-      \index{#2 command@\protect\hangleft{\texttt{\tuftebs}}\texttt{#2} (\texttt{#1} package)}% command name
-      \index{#1 package@\texttt{#1} package}\index{packages!#1@\texttt{#1}}% package name
-    }%
-}% command name -- adds backslash automatically
-\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
-\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
-\newenvironment{docspec}{\begin{quotation}\ttfamily\parskip0pt\parindent0pt\ignorespaces}{\end{quotation}}% command specification environment
-\newcommand{\docenv}[1]{\texttt{#1}\index{#1 environment@\texttt{#1} environment}\index{environments!#1@\texttt{#1}}}% environment name
-\newcommand{\docenvdef}[1]{\hlred{\texttt{#1}}\label{env:#1}\index{#1 environment@\texttt{#1} environment}\index{environments!#1@\texttt{#1}}}% environment name
-\newcommand{\docpkg}[1]{\texttt{#1}\index{#1 package@\texttt{#1} package}\index{packages!#1@\texttt{#1}}}% package name
-\newcommand{\doccls}[1]{\texttt{#1}}% document class name
-\newcommand{\docclsopt}[1]{\texttt{#1}\index{#1 class option@\texttt{#1} class option}\index{class options!#1@\texttt{#1}}}% document class option name
-\newcommand{\docclsoptdef}[1]{\hlred{\texttt{#1}}\label{clsopt:#1}\index{#1 class option@\texttt{#1} class option}\index{class options!#1@\texttt{#1}}}% document class option name defined
-\newcommand{\docmsg}[2]{\bigskip\begin{fullwidth}\noindent\ttfamily#1\end{fullwidth}\medskip\par\noindent#2}
-\newcommand{\docfilehook}[2]{\texttt{#1}\index{file hooks!#2}\index{#1@\texttt{#1}}}
-\newcommand{\doccounter}[1]{\texttt{#1}\index{#1 counter@\texttt{#1} counter}}
-
-% Generates the index
-\usepackage{makeidx}
-\makeindex 
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -175,7 +51,7 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
-\spacing single
+\spacing onehalf
 \use_hyperref false
 \papersize default
 \use_geometry true
@@ -481,36 +357,13 @@ n.
 Campaigns have several custom fields added to them to show a summary information
  of the number of hours and number of volunteers who have worked on all
  Volunteer Jobs in the Campaign.
- 
 \end_layout
 
-\begin_layout Chapter
+\begin_layout Part
 Installation Instructions
 \end_layout
 
-\begin_layout Standard
-The Groundwire Volunteers for Salesforce package is available as a managed
- package and source code.
- Visit the AppExchange for the managed project 
-\begin_inset CommandInset href
-LatexCommand href
-name "here"
-target "http://appexchange.salesforce.com/listingDetail?listingId=a0N30000003JBggEAG"
-
-\end_inset
-
-, or the Google Code project 
-\begin_inset CommandInset href
-LatexCommand href
-name "here"
-target "http://code.google.com/p/groundwire-volunteers-for-salesforce/"
-
-\end_inset
-
- to find the links to the source code (for advanced users).
-\end_layout
-
-\begin_layout Section
+\begin_layout Chapter
 Requirements Before Installing
 \end_layout
 
@@ -829,7 +682,7 @@ Click
 Save”.
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Installation Steps
 \end_layout
 
@@ -1372,7 +1225,7 @@ end{enumerate}
 The application is now installed and ready to be configured.
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Requirements after installation
 \end_layout
 
@@ -1510,19 +1363,6 @@ sidenote{The following set of instructions requires permissions to edit
 \end_inset
 
 .
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pagebreak
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -1876,7 +1716,7 @@ Volunteers for Salesforce provides other custom buttons that allow uers
  to enable these features.
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Volunteer Skills and Ability
 \end_layout
 
@@ -1898,19 +1738,6 @@ sidenote{Modifying these picklists will not affect information already saved
 
 .
  To edit these lists: 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pagebreak
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -2143,19 +1970,7 @@ Listing, and VolunteersJobListingFS.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pagebreak
-\end_layout
-
-\end_inset
-
- To modify these settings do the following:
+To modify these settings do the following:
 \end_layout
 
 \begin_layout Enumerate
@@ -2282,17 +2097,14 @@ Volunteers for Salesforce includes a VisualForce page you can enable in
  Contact records created.
  If you use Leads, then you will want to specify the Lead Custom Field Mapping
  so that the volunteer fields on the Lead will be copied over to the Contact
- when the Lead is converted
-.
+ when the Lead is converted.
 \end_layout
 
 \begin_layout Enumerate
-
 Go to Setup > App Setup > Customize > Leads > Fields
 \end_layout
 
 \begin_layout Enumerate
-
 Scroll down to the 
 \begin_inset Quotes eld
 \end_inset
@@ -2436,19 +2248,6 @@ Most of the Volunteer Reports use the Volunteer Hours End Date field to
  out when you enter records.
  You need to ensure that this workflow rule is enabled after installation.
  
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pagebreak
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Enumerate
@@ -2548,7 +2347,6 @@ status open
 \end_layout
 
 \begin_layout Standard
-]
 \begin_inset Graphics
 	filename Images/workflow-hours-activate.png
 	scale 45
@@ -2558,7 +2356,7 @@ status open
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Email Notifications and Email Templates
 \end_layout
 
@@ -2569,6 +2367,803 @@ If you use the Volunteers Signup page or Volunteers Job Listing page on
  There are two Workflow Rules which by default, are activated.
  These are Volunteer Signup – Contact and Volunteer Signup – Lead.
  If you want to turn these off, do the following:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create Workflows & Approvals > Workflow Rules
+\end_layout
+
+\begin_layout Enumerate
+Scroll to the bottom to see the Volunteer workflows.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Deactivate
+\begin_inset Quotes erd
+\end_inset
+
+ to turn them off.
+\end_layout
+
+\begin_layout Standard
+Both of these Workflow Rules
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{If you are upgrading from a version before 1.14, there is an additional
+ step that you must take to get the alerts to work.
+ Check the original documentation for more information.}
+\end_layout
+
+\end_inset
+
+ use several Email Alerts.
+ The Volunteer Signup Thank You Email – Contact and Volunteer Signup Thank
+ You Email – Lead both send their email to the volunteer with the From Email
+ Address set to current user’s email address.
+ Due to these rules being run when the website creates the contact, the
+ from address will look like “volunteers Site Guest User”.
+ You should modify these two Email Alerts to use one of your Organization-Wide
+ Addresses.
+ To create an Organization-Wide Address, do the following:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Email Administration > Organization-Wide
+ Addresses.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/administration-setup-navigation.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click the 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/administration-organization-wide-email-address-add.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Provide a display name and a valid email address
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{You must have access to this email address, as Salesforce sends
+ a confirmation email to make sure that you are the owner.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Select 
+\begin_inset Quotes eld
+\end_inset
+
+Allow All Profiles to Use this From Address
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/administration-add-email-address.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Check the email that you specified for the message from Salesforce and click
+ the validation link to confirm that you own the account.
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create > Workflow & Approvals > Email Alerts.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-email-alerts.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Scroll down to the bottom of Email alerts to see the Volunteer related email
+ alerts.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ for one of the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Signup Thank You
+\begin_inset Quotes erd
+\end_inset
+
+ alert
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{If you are using the Lead method, you will eventually edit both
+ Thank You alerts.
+ If you are using Contacts only, you only have to edit "Volunteer Signup
+ Thank You Email Alert - Contact".} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/email-alerts-thank-you.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Scroll down to the 
+\begin_inset Quotes eld
+\end_inset
+
+From Email Address
+\begin_inset Quotes erd
+\end_inset
+
+ field and choose the organization-wide email address that you created above.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-alerts-organization-email-address.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If you are using both Leads and Contacts, remember to perform the steps
+ above on both alerts.
+\end_layout
+
+\begin_layout Standard
+When contacts sign up online, the Volunteers for Salesforce app also sends
+ email alerts to users to let them know that a Contact or Lead has signed
+ up.
+ By default, the email goes to the Lead or Contact's owner (usually whoever
+ created the contact or lead).
+ You can adjust the settings to send a notification to whichever user
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{You must create the user before you begin these steps.}
+\end_layout
+
+\end_inset
+
+ you wish (e.g., a volunteer coordinator) by doing the following:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create > Workflow & Approvals > Email Alerts
+\end_layout
+
+\begin_layout Enumerate
+Scroll down to the bottom of the email alerts to see the volunteer related
+ email alerts.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-alert-volunteer-notification.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+edit
+\begin_inset Quotes erd
+\end_inset
+
+ for a Volunteer Signup Notification Email Alert
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Again, if you are using both Leads and Contacts, you will have
+ to edit both of these alerts, but if you are only using Contacts, you can
+ skip editing the Lead alert without consequence.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Find the list of Recipients and edit.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{If you have multiple volunteer coordinators, instead of sending
+ the alert to a specific user, you can send the alert to a role.
+ If you wish to this, change the Recipient Type from "User" to "Role" and
+ choose the appropriate role.
+ Make sure that you create a role for volunteer coordinators and assigning
+ users to that role first.}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-alert-volunteer-notification-recipient.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If you are using both Leads and Contacts, remember to change these settings
+ for both notifications.
+\end_layout
+
+\begin_layout Standard
+The various Volunteer Email Alerts all use Email Templates that you will
+ want to customize for your organization.
+ These email templates are also made available to the Mass Email Volunteers
+ page.
+ To edit these templates:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Communications Templates.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-templates.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Choose the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteers Email Templates
+\begin_inset Quotes erd
+\end_inset
+
+ folder to see the volunteer related templates.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-templates-folder.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ for each of the templates that you wish to modify.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-templates-templates.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Edit the templates as you need.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Customizing the Volunteers Wizard
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{The Volunteers Wizard comes with several relevant default fields.
+ You will only need to edit this if you have custom Campaign fields that
+ you wish to add to the Volunteers Wizard or if you don't plan on using
+ all of the included fields.}
+\end_layout
+
+\end_inset
+
+Volunteers for Salesforce now allows you to specify the Campaign fields
+ to display on the Volunteers Wizard, using a Field Set.
+ This allows you to include custom fields and standard fields that you want
+ the user to fill out.
+ Here are the steps to customize the Field Set:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Customize > Campaigns > Field Sets.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/campaign-field-sets.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ link for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{VolunteersWizardFS}
+\end_layout
+
+\end_inset
+
+.
+
+ 
+\lang english
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/campaign-field-sets-volunteers-wizard.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+To add fields to the field set, drag them from the top section into the
+ 
+\begin_inset Quotes eld
+\end_inset
+
+In the Field Set
+\begin_inset Quotes erd
+\end_inset
+
+ box.
+\end_layout
+
+\begin_layout Enumerate
+To remove fields from the Field Set, mouse over the field and click the
+ 
+\begin_inset Quotes eld
+\end_inset
+
+-
+\begin_inset Quotes erd
+\end_inset
+
+ icon.
+\end_layout
+
+\begin_layout Enumerate
+To reorder the fields, drag and drop them into place.
+\end_layout
+
+\begin_layout Enumerate
+To make fields required, mouse over the field and click the wrench icon
+ and select 
+\begin_inset Quotes eld
+\end_inset
+
+Required
+\begin_inset Quotes erd
+\end_inset
+
+ from the popup.
+\end_layout
+
+\begin_layout Enumerate
+When finished, click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Customizing Mass Edit Volunteer Hours
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce now allows you to specify the Volunteer Hour fields
+ to display on the Mass Edit Volunteer Hours page, using a Field Set.
+ This allows you to include custom fields and standard fields that you want
+ the user to fill out.
+ Here are the steps to customize the Field Set:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App > Create > Objects.
+\end_layout
+
+\begin_layout Enumerate
+Click on the label for 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Scroll down the page to the Field Sets section.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ link for MassEditVolunteerHours.
+\end_layout
+
+\begin_layout Enumerate
+Follow the same steps in the last section to add, remove, and reconfigure
+ the fields in the Mass Edit Volunteer Hours page.
+\end_layout
+
+\begin_layout Part
+Configuring Volunteer Signup for Your Website
+\end_layout
+
+\begin_layout Chapter
+Enabling Salesforce Sites
+\end_layout
+
+\begin_layout Standard
+If you have a website, and you would like to have a page on your site where
+ people can sign up to express their interest in volunteering, Volunteers
+ for Salesforce provides the page you need.
+ Volunteers for Salesforce also provides a separate page that you can host
+ on your website to display available volunteer jobs (and optionally shifts),
+ and allow volunteers to signup for these specific job (and shifts).
+\end_layout
+
+\begin_layout Standard
+In order to display Salesforce forms as web pages, you must enable Sites
+ in your Salesforce database:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites
 \end_layout
 
 \end_body
