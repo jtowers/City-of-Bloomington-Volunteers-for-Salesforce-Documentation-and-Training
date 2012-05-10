@@ -28,6 +28,8 @@
   \clearpage%
 
 }
+
+\usepackage{listings}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -3008,10 +3010,7 @@ emph{VolunteersWizardFS}
 \end_inset
 
 .
-
  
-\lang english
-
 \begin_inset ERT
 status open
 
@@ -3163,7 +3162,1498 @@ In order to display Salesforce forms as web pages, you must enable Sites
 \end_layout
 
 \begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/setup-sites-navigation.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Specify the name you want to use for your domain
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Note that once set, you cannot modify this name.
+ If you plan to redirect users to the volunteers page hosted on this site
+ or you plan to use the site for other purposes, you should choose a name
+ that is appropriate for your organization.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Check Availaibility
+\begin_inset Quotes erd
+\end_inset
+
+ to make sure the name you chose is not already in use.
+\end_layout
+
+\begin_layout Enumerate
+Read and check the “Sites Terms of Use.”
+\end_layout
+
+\begin_layout Enumerate
+Click “Register My Force.com Domain.”
+\end_layout
+
+\begin_layout Chapter
+Creating a Site
+\end_layout
+
+\begin_layout Standard
+Now that you have enabled Salesforce Sites, you will create an actual site
+ to host the pages for Volunteers for Salesforce:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+New
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+On the edit page, fill in the required fields and any other fields that
+ you wish: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-new-site.png
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Site Label: Can be anything but 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteers
+\begin_inset Quotes erd
+\end_inset
+
+ is recommended for clarity.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Site Name: Can be anything but 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteers
+\begin_inset Quotes erd
+\end_inset
+
+ is recommended for clarity.
+\end_layout
+
+\begin_layout Enumerate
+Site Contact: Choose the contact who will handle the technical issues for
+ the site.
+ Use the magnifying glass icon next to the field to search for the appropriate
+ contact.
+\end_layout
+
+\begin_layout Enumerate
+Active Site Home Page: Use the default 
+\begin_inset Quotes eld
+\end_inset
+
+UnderConstruction
+\begin_inset Quotes erd
+\end_inset
+
+ page that Salesforce provides.
+ To do this:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Click on the magnifying glass icon next to the field.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-active-home-page-field.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the window that pops up type 
+\begin_inset Quotes eld
+\end_inset
+
+UnderConstruction
+\begin_inset Quotes erd
+\end_inset
+
+ into the search box.
+ There should only be one result.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-active-home-page-search.png
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click the result to insert the page into the field.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Other fields can be ignored if you wish.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Chapter
+Configuring Access
+\end_layout
+
+\begin_layout Standard
+You now need to enable the specific Visualforce pages and classes that will
+ be used on your Site
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+marginnote{If you do not follow these steps, potential volunteers will not
+ be able to edit the fields on your sites.}
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
 Go to Setup > App Setup > Develop > Sites
+\end_layout
+
+\begin_layout Enumerate
+Click on the label for the site you created above to go to its detail page.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-configure-access.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Public Access Settings
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-details-page.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Under the 
+\begin_inset Quotes eld
+\end_inset
+
+Apps
+\begin_inset Quotes erd
+\end_inset
+
+ heading, click 
+\begin_inset Quotes eld
+\end_inset
+
+Visualforce Page Access
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-access-settings.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+GW_Volunteers.VolunteersSignup
+\begin_inset Quotes erd
+\end_inset
+
+ to select it and click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+GW_Volunteers.VolunteersJobListing
+\begin_inset Quotes erd
+\end_inset
+
+ to select it and click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+GW_Volunteers.VolunteersSignupFS
+\begin_inset Quotes erd
+\end_inset
+
+ to select it and click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+GW_Volunteers.JobCalendar
+\begin_inset Quotes erd
+\end_inset
+
+ to select it and click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-visualforce-access-settings.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+This should bring you back to the Profile page for your site.
+ Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ again.
+\end_layout
+
+\begin_layout Enumerate
+Under the 
+\begin_inset Quotes eld
+\end_inset
+
+Apps
+\begin_inset Quotes erd
+\end_inset
+
+ section, click on 
+\begin_inset Quotes eld
+\end_inset
+
+Objects and Tabs
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Find the 
+\begin_inset Quotes eld
+\end_inset
+
+Accounts
+\begin_inset Quotes erd
+\end_inset
+
+ link in the list and click on it.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-objects-and-tabs-accounts.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Under 
+\begin_inset Quotes eld
+\end_inset
+
+Object Permissions
+\begin_inset Quotes erd
+\end_inset
+
+ make sure the 
+\begin_inset Quotes eld
+\end_inset
+
+Read
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ permissions are both checked.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-objects-and-tabs-accounts-permissions.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Under 
+\begin_inset Quotes eld
+\end_inset
+
+Field Permissions
+\begin_inset Quotes erd
+\end_inset
+
+, make sure that 
+\begin_inset Quotes eld
+\end_inset
+
+Read
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ are checked for every field that you wish to make visible on the volunteer
+ signup form that you will eventually put on your site
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{It helps to have all of the fields created before performing this
+ step, though it is not necessary.
+ If you create a custom field in the future or wish to include a default
+ field, you can make it available using this menu.}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Repeat steps a-d for the 
+\begin_inset Quotes eld
+\end_inset
+
+Campaigns
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Contacts
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{For the "Documents" object, you need only set the permissions to
+ "Read", not "Read" and "Edit".}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes erd
+\end_inset
+
+Households
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Leads
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Jobs
+\begin_inset Quotes erd
+\end_inset
+
+, and 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Shifts
+\begin_inset Quotes erd
+\end_inset
+
+ objects.
+\end_layout
+
+\begin_layout Chapter
+Setting the Correct Time Zone
+\end_layout
+
+\begin_layout Standard
+You need to tell Salesforce what time zone to display Job Shift dates &
+ times with.
+ It defaults to GMT, so if this is not the time zone you want, you must
+ change it:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites
+\end_layout
+
+\begin_layout Enumerate
+Click on the label for your site to go to its detail page.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Public Access Settings
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Assigned Users
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/sites-time-zone-assigned-users.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ button next to the Guest User account for your site.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-time-zone-guest-user.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Scroll to 
+\begin_inset Quotes eld
+\end_inset
+
+Locale Settngs
+\begin_inset Quotes erd
+\end_inset
+
+ and choose the appropriate time zone from the 
+\begin_inset Quotes eld
+\end_inset
+
+Time Zone
+\begin_inset Quotes erd
+\end_inset
+
+ picklist.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-time-zone-guest-user-locale.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Chapter
+Enabling Your Site
+\end_layout
+
+\begin_layout Standard
+Now the site must be enabled:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Activate
+\begin_inset Quotes erd
+\end_inset
+
+ link for the site.
+\end_layout
+
+\begin_layout Chapter
+Testing Your Site
+\end_layout
+
+\begin_layout Standard
+Now you should test the site to make sure it is set up properly:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Site URL
+\begin_inset Quotes erd
+\end_inset
+
+ for your site.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-site-url.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+This will display the default home page that you chose above (if you didn't
+ change it, it will show the 
+\begin_inset Quotes eld
+\end_inset
+
+Under Construction
+\begin_inset Quotes erd
+\end_inset
+
+ page.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If the link goes to the correct page, go to the address bar and add 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{
+\end_layout
+
+\end_inset
+
+ /GW__Volunteers__VolunteersSignup
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ to the end of the URL
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{
+\end_layout
+
+\end_inset
+
+For example, the site URL in the screenshot is http://newhopefamilyshelter.force.c
+om/volunteers, so the link to the volunteer sign up page for that is http://newh
+opefamilyshelter.force.com/volunteer/
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+GW__Volunteers__VolunteersSignup
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Enter some test data in the form and click 
+\begin_inset Quotes eld
+\end_inset
+
+Submit
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Depending on your settings, you should have created either a new Lead or
+ a new Contact.
+ Check the appropriate place to make sure that the Lead or Contact was created
+ successfully.
+\end_layout
+
+\begin_layout Chapter
+Integrating Volunteer Signup into Your Website
+\end_layout
+
+\begin_layout Standard
+Now that you have the form working as a stand alone web page, you can integrate
+ it into a page on your own website.
+ This is accomplished by embedding an iframe on your site.
+ It should something like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+<iframe src="[url-to-signup-page]" frameborder="0" 
+\end_layout
+
+\begin_layout Plain Layout
+
+scrolling="false" height="600" width="500"></iframe>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You should edit the properties of the <iframe> tag to fit your needs.
+ If you are not familiar with HTML, use this page for reference: http://www.w3sch
+ools.com/tags/tag_iframe.asp
+\end_layout
+
+\begin_layout Chapter
+Styling the Volunteer Signup Form
+\end_layout
+
+\begin_layout Standard
+The Volunteer Signup form page uses a CSS file that is installed to your
+ Salesforce database.
+ You can modify the contents of the CSS file to change the signup form to
+ match the style of your organization's website:
+\end_layout
+
+\begin_layout Enumerate
+Go to the 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset Quotes erd
+\end_inset
+
+ tab
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{This should be in the list of tabs across the top of the page that
+ begins with the "Home" tab.
+ If it is not there, at the end of the list of tabs there should be a +
+ symbol.
+ Click it and choose "Documents" from the list of tabs that appears.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+At the 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset Quotes erd
+\end_inset
+
+ page, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteers Documents
+\begin_inset Quotes erd
+\end_inset
+
+ from the list of folders.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/documents-volunteers-folder.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Find 
+\begin_inset Quotes eld
+\end_inset
+
+VolunteersSignupCSS.css
+\begin_inset Quotes erd
+\end_inset
+
+ and click the 
+\begin_inset Quotes eld
+\end_inset
+
+View
+\begin_inset Quotes erd
+\end_inset
+
+ link.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/documents-volunteer-css.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+This will display CSS currently used by the Volunteers Signup form.
+ Copy the CSS
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Note: The CSS has a section that is commented out.
+  Uncommenting this will change the styles to give you an idea of what elements
+ of the page can be styled with CSS.}
+\end_layout
+
+\end_inset
+
+ into a text editor and modify it as you wish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+Ff you are unfamiliar with CSS you can find 
+\begin_inset CommandInset href
+LatexCommand href
+name "tutorials"
+target "http://www.w3schools.com/css/default.asp"
+
+\end_inset
+
+ online
+.
+\lang english
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Save the modified CSS to your local machine.
+\end_layout
+
+\begin_layout Enumerate
+Go back to the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteers Documents
+\begin_inset Quotes erd
+\end_inset
+
+ folder in the 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset Quotes erd
+\end_inset
+
+ tab.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+VolunteersSignupCSS.css
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Replace Document Button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/documents-save-css.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+On the 
+\begin_inset Quotes eld
+\end_inset
+
+Replace Document
+\begin_inset Quotes erd
+\end_inset
+
+ page, choose the file that you saved to your computer and click 
+\begin_inset Quotes eld
+\end_inset
+
+Replace Document
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/documents-replace-css.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Refresh your Volunteer Signup page to see your new style.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+Note: When new versions of Volunteers for Salesforce modify this file, Salesforc
+e will not update your document when you upgrade.
+ You must manually edit the CSS file and upload it to include newer markup.
+ Release notes will point out when this is necessary)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Customizing the Fields Displayed on the Volunteer Signup Form
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce
 \end_layout
 
 \end_body
