@@ -3414,6 +3414,12 @@ Save
 \end_layout
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Configuring-Access"
+
+\end_inset
+
 Configuring Access
 \end_layout
 
@@ -4300,7 +4306,8 @@ begin{lstlisting}
 
 \begin_layout Plain Layout
 
-<iframe src="[url-to-signup-page]" frameborder="0" 
+<iframe src="[site-url]/GW_Volunteers__VolunteersSignup" frameborder="0"
+ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -4322,11 +4329,24 @@ end{lstlisting}
 
 \begin_layout Standard
 You should edit the properties of the <iframe> tag to fit your needs.
- If you are not familiar with HTML, use this page for reference: http://www.w3sch
-ools.com/tags/tag_iframe.asp
+ If you are not familiar with HTML, use 
+\begin_inset CommandInset href
+LatexCommand href
+name "this page"
+target "http://www.w3schools.com/tags/tag_iframe.asp"
+
+\end_inset
+
+ for reference.
 \end_layout
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Styling-the-Volunteer"
+
+\end_inset
+
 Styling the Volunteer Signup Form
 \end_layout
 
@@ -4646,11 +4666,1261 @@ status open
 \end_layout
 
 \begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Customizing-the-Fields"
+
+\end_inset
+
 Customizing the Fields Displayed on the Volunteer Signup Form
 \end_layout
 
 \begin_layout Standard
-Volunteers for Salesforce
+Volunteers for Salesforce allows you to customize the fields displayed on
+ the signup form using Field Sets
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+sidenote{
+\end_layout
+
+\end_inset
+
+To use page with field sets, you must direct users to the GW__Volunteers__Volunt
+eersSignupFS page instead of the GW__Volunteers__VolunteersSignup in the
+ steps above.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+ To customize the fields use the following process: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+marginnote{Note: The field sets page does not support creating Leads, so
+ if you have Volunteers set up to create Leads from web signups instead
+ of contacts, you cannot use this feature.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Customize > Contacts >Field Sets 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/contacts-field-sets.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ link next to 
+\begin_inset Quotes eld
+\end_inset
+
+VolunteersSignupFS
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/contacts-field-sets-choose.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+This will display a page similar to the Page Layout Editor we used in one
+ of the above steps.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+To add a field to the signup form, drag it from the list of available fields
+ to the 
+\begin_inset Quotes eld
+\end_inset
+
+In the Field Set
+\begin_inset Quotes erd
+\end_inset
+
+ box.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+Note: The VolunteersSignupFS page only supports adding fields from the Contacts
+ object, so if you need to create custom fields for the signup form, you
+ should create them under Contacts.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+To remove fields, hover over them and click the minus icon.
+ 
+\end_layout
+
+\begin_layout Enumerate
+To make the field required, hover over it and click the wrench icon, and
+ then check the 
+\begin_inset Quotes eld
+\end_inset
+
+required
+\begin_inset Quotes erd
+\end_inset
+
+ box in the windows that appears.
+\end_layout
+
+\begin_layout Enumerate
+To reorder the field, drag them to a new position.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/contacts-field-sets-edit.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+When you are finished click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Ensure that the fields that you added to the form are enabled for the volunteer
+ sites user profile.
+ To do this, refer to the Configuring Access chapter on page 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "chap:Configuring-Access"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Localizing the Volunteer Signup Form
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce supports localization into French.
+ You can also localize into additional languages, which will be explained
+ in a later section.
+ In order to have VolunteersSignupFS display in a different language, you
+ must include a parameter on the URL: 
+\end_layout
+
+\begin_layout Itemize
+Language – The language used to display labels that have associated translations
+ in Salesforce.
+ This value overrides the language of the user viewing the page.
+ Possible values for this attribute include any language keys for languages
+ supported by Salesforce, for example, "en" or "en-US".
+ Volunteers for Salesforce also supports “fr” for French.
+ An example: GW_Volunteers__VolunteersSignupFS?Language=fr 
+\end_layout
+
+\begin_layout Standard
+When you use the Language parameter, all of the field names, picklist values,
+ and messages will be displayed in the specified language (assuming a translatio
+n is provided).
+ Please review the section Enabling Localization in Volunteers for Salesforce
+ to find out additional steps you must take.
+\end_layout
+
+\begin_layout Chapter
+Uploading Documents with the Volunteer Signup Form
+\end_layout
+
+\begin_layout Standard
+The VolunteersSignupFS page and VolunteersJobListingFS page also support
+ a URL parameter to tell the page to include a file upload button, thus
+ allowing a document to be stored along with the matched or created Contact
+ record:
+\end_layout
+
+\begin_layout Itemize
+FileUploadLabel – a string to specify that a file upload button should be
+ included on the page.
+ The string is displayed as a label in the left column, next to the button.
+ If the label contains spaces, you need to encode them in the URL with %20.
+ An example: GW_Volunteers__VolunteersSignupFS?FileUploadLabel=Please%20include%
+20yo ur%20resume
+\end_layout
+
+\begin_layout Chapter
+Integrating Volunteer Job Listings & Signup into your Web Site
+\end_layout
+
+\begin_layout Standard
+Similar to hosting the VolunteersSignup page in your website, you can host
+ the VolunteersJobListing or VolunteersJobListingFS page as well.
+ Use and IFRAME tag similar to the following:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+<iframe src="[site-rul]/GW_Volunteers__VolunteerJobListings" frameborder="0"
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+scrolling="false" height="600" width="500"></iframe>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The VolunteersJobListing page supports the following parameters on its URL:
+\end_layout
+
+\begin_layout Itemize
+campaignId – a 15 character Salesforce ID of the Campaign to display jobs
+ from.
+ If not provided, the page will look at all Campaigns that are active.
+ In either case, the page will then display all jobs that have “Display
+ on Website” checked.
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowJobName – if set to 0 (zero), the job name is not displayed.
+ Defaults to 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowDescription – if set to 0 (zero), the job’s description rich text field
+ is not displayed.
+ Defaults to 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowLocationAddress – if set to 0 (zero), the job’s address is not displayed.
+ Defaults to 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowLocationInfo – if set to 0 (zero), the job’s location information rich
+ text field is not displayed.
+ Defaults to 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowSkills – if set to 1, the job’s desired skills are shown as a semicolon
+ separated list.
+ Defaults to 0 (zero).
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowShifts – if set to 0 (zero), the job’s shifts are not displayed, and
+ just a single Sign Up button per job is displayed.
+ Note that if Shifts are being displayed, but a given job has no shifts,
+ then that job will just have a single Sign Up button displayed.
+ Defaults to 1.
+\end_layout
+
+\begin_layout Standard
+VolunteersJobListingFS also supports these additional parameters:
+\end_layout
+
+\begin_layout Itemize
+Language – The language used to display labels that have associated translations
+ in Salesforce.
+ This value overrides the language of the user viewing the page.
+ Possible values for this attribute include any language keys for languages
+ supported by Salesforce, for example, "en" or "en-US".
+ Volunteers for Salesforce also supports “fr” for French.
+ 
+\end_layout
+
+\begin_layout Itemize
+DateFormat – a formatting string that controls how Shift dates are displayed.
+ It handles the following tokens: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+MM – displays the numerical month, starting with a 0 if less than 10.
+ (01 – 12) 
+\end_layout
+
+\begin_layout Itemize
+M – displays the numerical month, with no starting 0.
+ (1-12) 
+\end_layout
+
+\begin_layout Itemize
+dd – displays the calendar day, with a starting 0 if < 10.
+ (01 – 31) 
+\end_layout
+
+\begin_layout Itemize
+d – displays the calendar day, with no starting 0.
+ (1 – 31) o yyyy – displays a four digit year.
+ (eg.
+ 2011) 
+\end_layout
+
+\begin_layout Itemize
+yy – displays a two digit year.
+ (eg.
+ 11) The default DateFormat string used, if not specified, is “m/d/yyyy”.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+TimeFormat – a formatting string that controls how Shift times are displayed.
+ It handles the following tokens: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+hh – displays the hour from 1 - 12, with a leading zero if less than 10.
+ (01 – 12) 
+\end_layout
+
+\begin_layout Itemize
+h – displays the hour from 1 – 12, with no leading zero.
+ (1 – 12) 
+\end_layout
+
+\begin_layout Itemize
+HH – displays the hour from 1 – 23, with a leading zero if less than 10.
+ (01 – 23) 
+\end_layout
+
+\begin_layout Itemize
+H – displays the hour from 1 – 23, with no leading zero.
+ (1 – 23)
+\end_layout
+
+\begin_layout Itemize
+mm – displays the minutes, with a leading zero if less than 10.
+ (00 – 59) 
+\end_layout
+
+\begin_layout Itemize
+m – displays the minutes, with no leading zero.
+ (0-59) o
+\end_layout
+
+\begin_layout Itemize
+tt – displays the time period as am or pm.
+ The default TimeFormat string used, if not specified, is “h:mm tt”.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+FileUploadLabel – a string to specify that a file upload button should be
+ included on the signup dialog.
+ The string is displayed as a label in the left column, next to the button.
+ If the label contains spaces, you need to encode them in the URL with %20.
+ An example: GW_Volunteers__VolunteersJobListingFS?FileUploadLabel=Please%20incl
+ude% 20your%20resume
+\end_layout
+
+\begin_layout Standard
+To specify parameters on a URL, you use the format:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+baseurl?param1=value1&param2=value2&param3=value3....
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+ So your URL might look like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+http://[url-to-page]?ShowLocationAddress=0&ShowSkills=1&Language=fr
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Styling the Volunteer Listing Form
+\end_layout
+
+\begin_layout Standard
+The VolunteersJobListing page uses a cascading style sheet (css) that is
+ a css file document that the package installs into your Salesforce database.
+ You are able to modify the contents of this file to provide your own css
+ that has the styles defined to match your website.
+ Follow the same instructions that are provided for the VolunteersSignup
+ page on page 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "chap:Styling-the-Volunteer"
+
+\end_inset
+
+.
+ The only difference is that the css file is called VolunteersJobListingCSS.css.
+\end_layout
+
+\begin_layout Chapter
+Customizing the Fields Displayed on the Volunteer Job Listing Form
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce now includes a Volunteer Job Listing page whose
+ signup dialog you can customize with Field Sets.
+ Field Sets allow a Salesforce administrator to specify which fields to
+ include on a Visualforce page.
+ To use this new customizable page, have your URL refer to GW_Volunteers__Volunt
+eersJobListingFS, by just adding the FS to the end of the page name.
+ 
+\end_layout
+
+\begin_layout Standard
+The VolunteersJobListingFS signup dialog will always first include the FirstName
+, LastName, and Email fields, since these are used for matching against
+ existing Contacts.
+ You are able to then specify the additional Contact fields you want on
+ the form by modifying the Contact VolunteersJobListingFS field set.
+ You are also able to specify any Volunteer Hours fields you would like
+ on the signup dialog, by modifying the Volunteer Hours VolunteersJobListingFS
+ field set.
+ Modifying these field sets is as described under the previous section for
+ the VolunteersSignup form on page 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "chap:Customizing-the-Fields"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Integrating Job Shift Calendar & Signup into your Web Site
+\end_layout
+
+\begin_layout Standard
+Similar to hosting the VolunteersJobListingFS page in your website, you
+ can host the JobCalendar page as well.
+ Use and IFRAME tag similar to the following:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+<iframe src="[site-url]/GW_Volunteers__JobCalendar" frameborder="0" 
+\end_layout
+
+\begin_layout Plain Layout
+
+scrolling="false" height="600" width="500"></iframe>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The JobCalendar page supports the all of the parameters for the VolunteersJobLis
+tingFS page
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{
+\end_layout
+
+\end_inset
+
+The VolunteersJobListingFS page is opened when the user clicks on a shift
+ in the calendar, and these parameters are passed on to the VolunteersJobListing
+FS page, to control its display and behavior.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ and the following additional parameters in its URL:
+\end_layout
+
+\begin_layout Itemize
+campaignId – a 15 character Salesforce ID of the Campaign to display job
+ shifts from.
+ If not provided, the page will look at all Volunteer Campaigns that are
+ active.
+ In either case, the page will then display all jobs that have “Display
+ on Website” checked.
+ 
+\end_layout
+
+\begin_layout Itemize
+volunteerJobId – a 15 character Salesforce ID of a specific job to display
+ shifts from.
+ If provided, this will set the calendar’s date to the date of the first
+ shift for that job.
+ 
+\end_layout
+
+\begin_layout Itemize
+volunteerShiftId – a 15 character Salesforce ID of a specific job shift
+ to display.
+ If provided, this will set the calendar’s date to the date of the specified
+ Shift.
+ 
+\end_layout
+
+\begin_layout Itemize
+Language – The language used to display labels that have associated translations
+ in Salesforce.
+ This value overrides the language of the user viewing the page.
+ Possible values for this attribute include any language keys for languages
+ supported by Salesforce, for example, "en" or "en-US".
+ Volunteers for Salesforce also supports “fr” for French.
+ 
+\end_layout
+
+\begin_layout Itemize
+Print – if set to 1, the calendar will display in a view optimized for printing
+ on a single page.
+ Defaults to 0 (zero).
+ 
+\end_layout
+
+\begin_layout Itemize
+initialDate – a date and time value specified in GMT which will set the
+ calendar’s current date.
+ 
+\end_layout
+
+\begin_layout Itemize
+CalendarView – a string that’s either “month”, “agendaWeek”, or “agendaDay”,
+ that set’s the calendar’s initial view.
+ Defaults to “month”.
+\end_layout
+
+\begin_layout Part
+Additional Customizations
+\end_layout
+
+\begin_layout Chapter
+Controlling when Job Shifts are Full
+\end_layout
+
+\begin_layout Standard
+All of the web pages that allow job shift sign up will display a Sign Up
+ link as long as the Shift’s Volunteers Still Needed field is greater than
+ zero.
+ The only volunteers that are counted against this field are those with
+ an Hours Status of “Completed” or “Confirmed”.
+ By default, the web pages create new Volunteer Hours records with a Status
+ of “Web Sign Up”.
+ Thus these sign ups will not change the number still needed and the job
+ will continue to allow sign ups from the web page.
+\end_layout
+
+\begin_layout Standard
+To cause the web page to display a shift as full, one must either change
+ the Status on enough Volunteer Hours records from “Web Sign Up” to “Confirmed”,
+ or one can reduce the Desired # of Volunteers field on the Shift.
+\end_layout
+
+\begin_layout Standard
+If you want the web sign ups to automatically become confirmed, so the shift
+ will fill up with the first sign ups, you can create a workflow rule to
+ update the Hours Status:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create > Workflow & Approval Rules.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-navigation.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+New Rule
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-new-rule.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Select object
+\begin_inset Quotes erd
+\end_inset
+
+ picklist, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours
+\begin_inset Quotes erd
+\end_inset
+
+ and click 
+\begin_inset Quotes eld
+\end_inset
+
+Next
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-select-object.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Name the rule 
+\begin_inset Quotes eld
+\end_inset
+
+Confirm Volunteer Web Signups
+\begin_inset Quotes erd
+\end_inset
+
+ or something similar.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-name-rule.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Evaluation Criteria
+\begin_inset Quotes erd
+\end_inset
+
+ section, choose, 
+\begin_inset Quotes eld
+\end_inset
+
+Only when a record is created
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-evaluation-criteria.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Rule Criteria
+\begin_inset Quotes erd
+\end_inset
+
+ section, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Run this rule if the following criteria are met
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-rule-criteria-run.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the first row of the rule criteria, choose the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours: Status
+\begin_inset Quotes erd
+\end_inset
+
+ field, set the operator to 
+\begin_inset Quotes eld
+\end_inset
+
+Equals
+\begin_inset Quotes erd
+\end_inset
+
+, and change the value to 
+\begin_inset Quotes eld
+\end_inset
+
+Web Sign Up
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-rule-criteria.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Save & Next
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Immediate Workflow Action
+\begin_inset Quotes erd
+\end_inset
+
+ section on the next page, click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Add Workflow Action
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown and choose 
+\begin_inset Quotes eld
+\end_inset
+
+New Field Update
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-workflow-action.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fill in a name, and in the 
+\begin_inset Quotes eld
+\end_inset
+
+Fields to Update
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours, Status
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-signup-update-status-action.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the options that appear, scroll to the 
+\begin_inset Quotes eld
+\end_inset
+
+Specify New Field Value
+\begin_inset Quotes erd
+\end_inset
+
+ section and choose 
+\begin_inset Quotes eld
+\end_inset
+
+A specific value
+\begin_inset Quotes erd
+\end_inset
+
+ and select 
+\begin_inset Quotes eld
+\end_inset
+
+Confirmed
+\begin_inset Quotes erd
+\end_inset
+
+ from the dropdown menu.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-signup-update-new-field-value.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click the 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Done
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+On the details page that appears, click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Activate
+\begin_inset Quotes erd
+\end_inset
+
+ button to activate your workflow.
 \end_layout
 
 \end_body
