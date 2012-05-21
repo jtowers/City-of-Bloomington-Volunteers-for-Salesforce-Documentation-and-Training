@@ -54,7 +54,16 @@
 \index_command default
 \paperfontsize default
 \spacing onehalf
-\use_hyperref false
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
 \papersize default
 \use_geometry true
 \use_amsmath 1
@@ -305,6 +314,51 @@ LatexCommand tableofcontents
 
 \begin_layout Chapter
 Overview
+\end_layout
+
+\begin_layout Section
+About this Document
+\end_layout
+
+\begin_layout Standard
+\align block
+This documentation is aimed at users who have never installed Volunteers
+ for Salesforce, and who have little experience with Salesforce.
+ It is an adapation of the original Groundwire documentation, with some
+ formatting tweaks, added screenshots, and some instructions related to
+ upgrades omitted.
+ There are also link within the document.
+ You can click on any red text and it will bring you to the page that the
+ text refers to.
+\end_layout
+
+\begin_layout Standard
+\align block
+At over 90 pages, this documentation may look daunting, but please don't
+ panic.
+ A common issue with documentation is that it is poorly designed and lacks
+ the necessary depth to be useful.
+ This documentation is meant to be clean and thorough.
+ Thus, the page count is padded by whitespace, narrow margins, lists, and
+ screen shots.
+ It is not truly 90 pages worth of documentation.
+\end_layout
+
+\begin_layout Standard
+The files used to create this documentation are available for download on
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "github"
+target "https://github.com/jtowers/City-of-Bloomington-Volunteers-for-Salesforce-Documentation-and-Training"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+About Volunteers for Salesforce
 \end_layout
 
 \begin_layout Standard
@@ -5958,7 +6012,7 @@ Enabling Localization
 
  chapter on page 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand vpageref
 reference "chap:Enabling-Localization"
 
 \end_inset
@@ -6329,7 +6383,7 @@ status open
  Here are some instructions on typical translations you may want to do:
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Translate the Contact Volunteer Skills Picklist
 \end_layout
 
@@ -6437,7 +6491,7 @@ Save
 .
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Override the English Term for a Field or Button
 \end_layout
 
@@ -6541,7 +6595,7 @@ Save
 .
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Exporting the Terms to be Translated
 \end_layout
 
