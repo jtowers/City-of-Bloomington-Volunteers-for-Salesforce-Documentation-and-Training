@@ -563,12 +563,15 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Fill in Record Type Label.
- We suggest 
+Fill in Record Type Label with anything you want (
 \begin_inset Quotes eld
 \end_inset
 
-Default” 
+Default
+\begin_inset Quotes erd
+\end_inset
+
+ is a good choice).
 \end_layout
 
 \begin_layout Enumerate
@@ -1708,7 +1711,7 @@ Updating Volunteer Campaign, Volunteer Job, and Volunteer Shift Page Layouts
 \end_layout
 
 \begin_layout Standard
-Volunteers for Salesforce provides other custom buttons that allow uers
+Volunteers for Salesforce provides other custom buttons that allow users
  to Mass Email members of a Campaign, Job or Shift and to see a Shift Calendar
  for a Campaign and/or Job.
  For most installations, these features should be present by default.
@@ -1724,8 +1727,8 @@ Volunteer Skills and Ability
 
 \begin_layout Standard
 The Groundwire Volunteers package is designed to be used in an ongoing fashion.
- There are some field picklists that are used in Leads, Contacts, and Volutneer
- Jobs that you will want to modify intially or in the future
+ There are some field picklists that are used in Leads, Contacts, and Volunteer
+ Jobs that you will want to modify initially or in the future
 \begin_inset ERT
 status open
 
@@ -1803,7 +1806,7 @@ status open
 \end_layout
 
 \begin_layout Enumerate
-Click on the lable for either 
+Click on the label for either 
 \begin_inset Quotes eld
 \end_inset
 
@@ -1935,7 +1938,7 @@ Signup Creates Contacts If No Match - Should the page VolunteersSignup create
  If this setting is unchecked, it will create Leads when no matches found.
  Default is unchecked.
  Note that this setting is only used by VolunteersSignup, and not any additional
- pags 
+ pages 
 \begin_inset ERT
 status open
 
@@ -2053,7 +2056,7 @@ Edit
 \begin_inset Quotes erd
 \end_inset
 
- (whichever button is availabile).
+ (whichever button is available).
 \end_layout
 
 \begin_layout Enumerate
@@ -2115,7 +2118,7 @@ Lead Custom Fields & Relationships
 \begin_inset Quotes erd
 \end_inset
 
- secton and click on the 
+ section and click on the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -3075,7 +3078,7 @@ Required
 \begin_inset Quotes erd
 \end_inset
 
- from the popup.
+ from the pop-up.
 \end_layout
 
 \begin_layout Enumerate
@@ -3212,7 +3215,7 @@ Click on
 \begin_inset Quotes eld
 \end_inset
 
-Check Availaibility
+Check Availability
 \begin_inset Quotes erd
 \end_inset
 
@@ -4059,7 +4062,7 @@ Scroll to
 \begin_inset Quotes eld
 \end_inset
 
-Locale Settngs
+Locale Settings
 \begin_inset Quotes erd
 \end_inset
 
@@ -5094,7 +5097,11 @@ dd – displays the calendar day, with a starting 0 if < 10.
 
 \begin_layout Itemize
 d – displays the calendar day, with no starting 0.
- (1 – 31) o yyyy – displays a four digit year.
+ (1 – 31) 
+\end_layout
+
+\begin_layout Itemize
+yyyy – displays a four digit year.
  (eg.
  2011) 
 \end_layout
@@ -5411,10 +5418,6 @@ initialDate – a date and time value specified in GMT which will set the
 CalendarView – a string that’s either “month”, “agendaWeek”, or “agendaDay”,
  that set’s the calendar’s initial view.
  Defaults to “month”.
-\end_layout
-
-\begin_layout Part
-Additional Customizations
 \end_layout
 
 \begin_layout Chapter
@@ -5921,6 +5924,916 @@ Activate
 \end_inset
 
  button to activate your workflow.
+\end_layout
+
+\begin_layout Chapter
+Changing the Colors used in the Job Shift Calendar
+\end_layout
+
+\begin_layout Standard
+The Job Shift Calendar displays unique colors for each Job in the given
+ month.
+ All shifts for a given job will have the same color.
+ The actual color values are stored in a custom label that you can override,
+ if you want to use different colors
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{
+\end_layout
+
+\end_inset
+
+You need to first follow the instructions in the 
+\begin_inset Quotes eld
+\end_inset
+
+Enabling Localization
+\begin_inset Quotes erd
+\end_inset
+
+ chapter on page 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Enabling-Localization"
+
+\end_inset
+
+ to enable customizing labels.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create > Custom Labels.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/shift-calendar-colors-custom-labels.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the letter 
+\begin_inset Quotes eld
+\end_inset
+
+L
+\begin_inset Quotes erd
+\end_inset
+
+ in the navigation across the top.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+labelColorValues
+\begin_inset Quotes erd
+\end_inset
+
+ link.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/shift-calendar-labelColorValues.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the button for 
+\begin_inset Quotes eld
+\end_inset
+
+New Local Translations/Overrides
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Put your new color names in the 
+\begin_inset Quotes eld
+\end_inset
+
+Translation Text
+\begin_inset Quotes erd
+\end_inset
+
+ box using the following format: double quote each color and separate them
+ with commas
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+The colors are used in order each month, so the first job of the month gets
+ the first color (which is used for all shifts from this job), and the second
+ job gets the second color, etc.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Part
+Localization and Renaming Labels
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Enabling-Localization"
+
+\end_inset
+
+Enabling Localization
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce supports English and French.
+ In addition, you can provide support for additional languages, if you can
+ provide translation for all the terms.
+\end_layout
+
+\begin_layout Standard
+In order to enable localization support, you must turn on the Translation
+ Workbench:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Translation Workbench > Translation
+ Settings.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/localization-translation-settings.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If you have not previously enabled the Translation Workbench, click 
+\begin_inset Quotes eld
+\end_inset
+
+Enable
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+On the 
+\begin_inset Quotes eld
+\end_inset
+
+Supported Languages
+\begin_inset Quotes erd
+\end_inset
+
+ page, click the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ link for each language you wish to support and do the following: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/localization-edit-languages.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+On the 
+\begin_inset Quotes eld
+\end_inset
+
+Language Translation Edit
+\begin_inset Quotes erd
+\end_inset
+
+ page, check the 
+\begin_inset Quotes eld
+\end_inset
+
+Active
+\begin_inset Quotes erd
+\end_inset
+
+ checkbox, so it is enabled.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/localization-activate-language.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If you want to do additional translating for that language, add the appropriate
+ users to the list of translators.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+marginnote{
+\end_layout
+
+\end_inset
+
+If you wish to translate Volunteers for Salesforce into a language that
+ is not currently provided, or you wish to translate terms differently,
+ please refer to Salesforce Help for full instructions on using the Translation
+ Workbench.
+ In addition, please contact Groundwire and let them know about your work.
+ They would like to include additional languages with the Volunteers for
+ Salesforce package.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ Here are some instructions on typical translations you may want to do:
+\end_layout
+
+\begin_layout Section
+Translate the Contact Volunteer Skills Picklist
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Translation Workbench > Translate.
+\end_layout
+
+\begin_layout Enumerate
+Pick the language that needs a translation in the 
+\begin_inset Quotes eld
+\end_inset
+
+Language
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Setup Component
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Picklist Value
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Object
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Contact
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In the displayed tree control, scroll down and find 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Skills
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
++
+\begin_inset Quotes erd
+\end_inset
+
+ button and you will see a list of the picklist values displayed.
+\end_layout
+
+\begin_layout Enumerate
+Hover over the middle column for each term and click on its pencil icon.
+\end_layout
+
+\begin_layout Enumerate
+Enter the translation.
+\end_layout
+
+\begin_layout Enumerate
+Repeat for each value in the picklist that needs translation.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Override the English Term for a Field or Button
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Translation Workbench > Override
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Package
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Groundwire Volunteers for Salesforce
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Language
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose 
+\begin_inset Quotes eld
+\end_inset
+
+English
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Setup Component
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose the item you want to relabel.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Object
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose the object that has the item you want to relabel.
+\end_layout
+
+\begin_layout Enumerate
+In the table that is displayed, hover your mouse over the 
+\begin_inset Quotes eld
+\end_inset
+
+Label
+\begin_inset Quotes erd
+\end_inset
+
+ override column in the appropriate row, and click on the pencil icon.
+\end_layout
+
+\begin_layout Enumerate
+Enter the new label you want to use.
+\end_layout
+
+\begin_layout Enumerate
+Repeat this step for all items you want to relabel.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Exporting the Terms to be Translated
+\end_layout
+
+\begin_layout Standard
+If you want to translate Volunteers for Salesforce into a new language,
+ or you want to review all of the translations for a given language, you
+ can export a file with all of the terms to be translated:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Translation Workbench > Export.
+\end_layout
+
+\begin_layout Enumerate
+Choose 
+\begin_inset Quotes eld
+\end_inset
+
+Bilingual
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Export
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+When the export is complete, you will receive an email notification from
+ Salesforce.
+\end_layout
+
+\begin_layout Enumerate
+Go to the 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset Quotes erd
+\end_inset
+
+ tab.
+\end_layout
+
+\begin_layout Enumerate
+In your 
+\begin_inset Quotes eld
+\end_inset
+
+My Personal Documents
+\begin_inset Quotes erd
+\end_inset
+
+ folder, you will find a zip file.
+\end_layout
+
+\begin_layout Enumerate
+Save the zip file to your computer.
+\end_layout
+
+\begin_layout Enumerate
+Extract the contents of the file to your computer.
+\end_layout
+
+\begin_layout Enumerate
+You will end up with a .stf file for each language enabled in your Salesforce
+ instance.
+ 
+\end_layout
+
+\begin_layout Enumerate
+This is a tab delimited file that you can open in Excel
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Excel will walk you through the steps required to import thise
+ file.
+ In order for Excel to correctly display accented characters, you should
+ change the file's extension, ".stf" to ".txt"}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Specify 
+\begin_inset Quotes eld
+\end_inset
+
+Tab
+\begin_inset Quotes erd
+\end_inset
+
+ for the delimiter and Unicode (UTF-8) for the the language.
+\end_layout
+
+\begin_layout Enumerate
+The file will contain two sections:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Translated terms
+\end_layout
+
+\begin_layout Enumerate
+Untranslated terms
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+For translated terms, you can update the translation by overwriting the
+ current translation in column C.
+\end_layout
+
+\begin_layout Enumerate
+For untranslated terms, you can specify the translation by overwriting the
+ English term in column B.
+\end_layout
+
+\begin_layout Enumerate
+When you are done translating, save the file
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Excel will ask you if you want to keep the file in its current
+ format.
+ Choose "Yes".}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Close Excel, choose 
+\begin_inset Quotes eld
+\end_inset
+
+No
+\begin_inset Quotes erd
+\end_inset
+
+ if it asks you to save again.
+\end_layout
+
+\begin_layout Enumerate
+Excel introduces a problem that must be fixed:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Open the file you just saved in a text editor.
+\end_layout
+
+\begin_layout Enumerate
+Open the Find and Replace function.
+\end_layout
+
+\begin_layout Enumerate
+In the Find field, type a double quote (
+\begin_inset Quotes eld
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Leave the Replace field empty.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Replace All
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Choose 
+\begin_inset Quotes eld
+\end_inset
+
+Save as
+\begin_inset Quotes erd
+\end_inset
+
+ from the file menu.
+\end_layout
+
+\begin_layout Enumerate
+Make sure the encoding is set to UTF-8.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Return to Salesforce to import the file.
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Translation Workbench > Import.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Choose File
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Select the 
+\begin_inset Quotes eld
+\end_inset
+
+.stf
+\begin_inset Quotes erd
+\end_inset
+
+ file from your computer.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Import
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Salesforce will send you a notification when the operation completes.
+\end_layout
+
+\begin_layout Enumerate
+Check the 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset Quotes erd
+\end_inset
+
+ tab for any errors.
 \end_layout
 
 \end_body
