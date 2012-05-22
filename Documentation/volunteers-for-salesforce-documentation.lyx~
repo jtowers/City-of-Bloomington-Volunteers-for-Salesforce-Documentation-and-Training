@@ -1,0 +1,6894 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass tufte-book
+\begin_preamble
+\newcommand{\subtitle}[1]{
+  \gdef\@subtitle{#1}
+
+}
+
+\renewcommand{\maketitlepage}[0]{%
+  \cleardoublepage%
+  {%
+  \sffamily%
+  \begin{fullwidth}%
+  \fontsize{18}{20}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\thanklessauthor}}%
+  \vspace{11.5pc}%
+  \fontsize{24}{40}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\thanklesstitle}}%
+  \ifdefined\@subtitle
+    {\fontsize{18}{40}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\@subtitle}}}%
+  \fi
+  \vfill%
+  \fontsize{14}{16}\selectfont\par\noindent\allcaps{\thanklesspublisher}%
+  \end{fullwidth}%
+  }
+  \thispagestyle{empty}%
+  \clearpage%
+
+}
+
+\usepackage{listings}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8x
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder false
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Installing and Configuring 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+Volunteers for Salesforce
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{fullwidth} 
+\end_layout
+
+\begin_layout Plain Layout
+
+~
+\backslash
+vfill 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+parindent}{0pt} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+parskip}
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+baselineskip}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset Graphics
+	filename Images/Copyright/by-sa.eps
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{
+\end_layout
+
+\end_inset
+
+Installing and Configuring Volunteers for Salesforce
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ by John Towers is licensed under a 
+\begin_inset CommandInset href
+LatexCommand href
+name "Creative Commons Attribution-ShareAlike 3.0 Unported License."
+target "http://creativecommons.org/licenses/by-sa/3.0/"
+
+\end_inset
+
+ Based on a work at 
+\begin_inset CommandInset href
+LatexCommand href
+name "groundwire.org"
+target "http://groundwire.org/apps/volunteers-for-salesforce/install-configuration-guide"
+
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+Much of this documentation is pulled directly from the app creator's own
+ fantastic documentation.
+ I have edited, reorganized, and added screenshots and notes for clarity.
+ You can download 
+\begin_inset CommandInset href
+LatexCommand href
+name "their documentation"
+target "http://groundwire.org/apps/volunteers-for-salesforce/install-configuration-guide"
+
+\end_inset
+
+ if you prefer.
+ Groundwire also has an 
+\begin_inset CommandInset href
+LatexCommand href
+name "online knowledge base"
+target "http://groundwire.org/apps/volunteers-for-salesforce"
+
+\end_inset
+
+ base that you search through and they monitor the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Non-profit Salesforce users Google Group"
+target "https://groups.google.com/forum/?fromgroups#!forum/npsf"
+
+\end_inset
+
+ if you need additional help.
+ Finally, if all else fails, Groundwire welcomes 
+\begin_inset CommandInset href
+LatexCommand href
+name "emails"
+target "labs@groundwire.org"
+type "mailto:"
+
+\end_inset
+
+ from users seeking help.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{fullwidth}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Overview
+\end_layout
+
+\begin_layout Section
+About this Document
+\end_layout
+
+\begin_layout Standard
+\align block
+This documentation is aimed at users who have never installed Volunteers
+ for Salesforce, and who have little experience with Salesforce.
+ It is an adapation of the original Groundwire documentation, with some
+ formatting tweaks, added screenshots, and some instructions related to
+ upgrades omitted.
+ There are also link within the document.
+ You can click on any red text and it will bring you to the page that the
+ text refers to.
+\end_layout
+
+\begin_layout Standard
+\align block
+At over 90 pages, this documentation may look daunting, but please don't
+ panic.
+ A common issue with documentation is that it is poorly designed and lacks
+ the necessary depth to be useful.
+ This documentation is meant to be clean and thorough.
+ Thus, the page count is padded by whitespace, narrow margins, lists, and
+ screen shots.
+ It is not truly 90 pages worth of documentation.
+\end_layout
+
+\begin_layout Standard
+The files used to create this documentation are available for download on
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "github"
+target "https://github.com/jtowers/City-of-Bloomington-Volunteers-for-Salesforce-Documentation-and-Training"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+About Volunteers for Salesforce
+\end_layout
+
+\begin_layout Standard
+\align block
+Volunteers for Salesforce is a Salesforce package that can be installed
+ into any Salesforce instance, and used to manage all aspects of your organizati
+on’s volunteer management needs.
+ 
+\end_layout
+
+\begin_layout Standard
+\align block
+Volunteers are managed in Salesforce using Contacts, Campaigns, and several
+ custom objects, summarized below:
+\end_layout
+
+\begin_layout Itemize
+\align block
+Volunteer Job – used to specify a job or position that needs to be filled,
+ as well as the skills needed for the job.
+\end_layout
+
+\begin_layout Itemize
+\align block
+Volunteer Shift – used to specify dates, times, and number of volunteers
+ needed for a specific Volunteer Job.
+ 
+\end_layout
+
+\begin_layout Itemize
+\align block
+Volunteer Hours – used to track the hours a volunteer spends for your organizati
+on, including the date(s) worked, the hours spent, and the volunteer job
+ it was for.
+ Can also specify the specific job shift the volunteer filled.
+ Also used to tentatively schedule volunteers for specific job shifts and
+ positions.
+\end_layout
+
+\begin_layout Standard
+\align block
+Volunteer information about Contacts is stored in several custom fields
+ which include Availability, Skills, Status, and a summary of the Hours
+ worked.
+ Leads also have some additional custom fields for tracking volunteer informatio
+n.
+ 
+\end_layout
+
+\begin_layout Standard
+\align block
+Campaigns have several custom fields added to them to show a summary information
+ of the number of hours and number of volunteers who have worked on all
+ Volunteer Jobs in the Campaign.
+\end_layout
+
+\begin_layout Part
+Installation Instructions
+\end_layout
+
+\begin_layout Chapter
+Requirements Before Installing
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+If you have 6 or more rollup summary fields on the Campaign object, Volunteers
+ for Salesforce will fail to install and you must have Salesforce increase
+ your rollup summary field limit before installing.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\series default
+In order to successfully install the package and to have the tests run without
+ any errors, you must ensure that the login used to install the package
+ has permissions to create Campaigns (they must have Marketing User checked
+ in their user account), as well as permissions to install packages.
+\end_layout
+
+\begin_layout Subsection
+Creating a default Campaign record type (optional)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+Note: This step is optional.
+ It is included so that you may preserve the way Salesforce handles Campaigns
+ by default (which may or may not be useful to your organization).
+ It is safe to skip this step, as it can be done later if you decide you
+ wish to choose between the default Salesforce Campaign and the Volunteers
+ campaign.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the Volunteers package will create a new Campaign Record Type, you
+ should first create a default Campaign Record Type, if you don’t have one.
+\end_layout
+
+\begin_layout Enumerate
+Click on your username in the top right and go down to Setup.
+ 
+\begin_inset Graphics
+	filename Images/usermenu.png
+	scale 60
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the navigation on the left go to App Setup > Customize > Campaigns >
+ Record Types.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/campaign-app-setup.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+New” button.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/campaign-record-type-new.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Use 
+\begin_inset Quotes eld
+\end_inset
+
+—Master—
+\begin_inset Quotes erd
+\end_inset
+
+ in the Existing Record Type picklist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/campaign-record-new-create.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fill in Record Type Label with anything you want (
+\begin_inset Quotes eld
+\end_inset
+
+Default
+\begin_inset Quotes erd
+\end_inset
+
+ is a good choice).
+\end_layout
+
+\begin_layout Enumerate
+Use the Record Type Name that Salesforce fills in, when you fill out the
+ Record Type Label.
+ 
+\end_layout
+
+\begin_layout Enumerate
+For description, put in 
+\begin_inset Quotes eld
+\end_inset
+
+The default campaign record type to use for new campaigns.” 
+\end_layout
+
+\begin_layout Enumerate
+Check 
+\begin_inset Quotes eld
+\end_inset
+
+Active”.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Check the 
+\begin_inset Quotes eld
+\end_inset
+
+Enable For Profile” checkbox in the header, so that all profiles can use
+ this new record type.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/campaign-record-profile-settings.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Check the 
+\begin_inset Quotes eld
+\end_inset
+
+Make Default” checkbox in the header, so that all profiles will default
+ to using this new record type.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Next”.
+ 
+\end_layout
+
+\begin_layout Enumerate
+On the Assign Page Layouts page, choose Apply one layout to all profiles,
+ and select 
+\begin_inset Quotes eld
+\end_inset
+
+Campaign layout”, or whatever your default page layout should be.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/campaign-record-default-layout.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save”.
+\end_layout
+
+\begin_layout Chapter
+Installation Steps
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Go to http://bitly.com/volunteersSF to visit the Volunteers for Salesforce
+ app on the App Exchange.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Click 
+\begin_inset Quotes eld
+\end_inset
+
+Get It Now”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Provide the information that the dialogue asks for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{If you have created a sandbox to test apps in, you can choose to
+ install Volunteers to it.
+ Note, however, that any changes you make in the Sandbox must be reapplied
+ when you install the app in your live deployment.}
+\end_layout
+
+\end_inset
+
+and click 
+\begin_inset Quotes eld
+\end_inset
+
+Continue
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Log in when Salesforce prompts you to.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Review Package Components, Set Security Levels & Install.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Before installing you will have the option to review all the components
+ of Volunteers for Salesforce.
+ The package name, version, description will also be noted.
+ Simply click 
+\begin_inset Quotes eld
+\end_inset
+
+Continue” to proceed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Volunteers for Salesforce requires access of your salesforce.com objects
+ through the API.
+ Please review and approve the required access by clicking on 
+\begin_inset Quotes eld
+\end_inset
+
+Next”.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Choose security levels to determine which user profiles can access Volunteers
+ for Salesforce.
+ We recommend specifying 
+\begin_inset Quotes eld
+\end_inset
+
+Grant Access to all Users.” Click 
+\begin_inset Quotes eld
+\end_inset
+
+Next” to continue.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Just click the 
+\begin_inset Quotes eld
+\end_inset
+
+Install
+\begin_inset Quotes erd
+\end_inset
+
+ button and Volunteers for Salesforce will be added into your salesforce.com
+ account
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{INSERT WARNING ABOUT APEX FAILURES}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ You will receive an email from Salesforce when the package has successfully
+ been installed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Completing the Installation with 
+\begin_inset Quotes eld
+\end_inset
+
+Deploy”
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{This is a critical step that frequently is overlooked, because
+ you must do it after you have received email from Salesforce that the installat
+ion was successful.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Go to Setup > App Setup > View Installed Packages 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/installed-packages-view.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Groundwire Volunteers for Salesforce
+\begin_inset Quotes erd
+\end_inset
+
+ in the list of installed packages.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/groundwire-package-view.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ The Package Details page will show you a listing of all of the package
+ components.
+ Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Deploy
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+item
+\end_layout
+
+\end_inset
+
+ The Deploy Package page now displays a listing of the custom objects, custom
+ report types, and workflow rules.
+ To proceed, simply click 
+\begin_inset Quotes eld
+\end_inset
+
+Deploy
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{enumerate}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The application is now installed and ready to be configured.
+\end_layout
+
+\begin_layout Chapter
+Requirements after installation
+\end_layout
+
+\begin_layout Subsection
+Campaign Record Types
+\end_layout
+
+\begin_layout Standard
+Since Volunteers for Salesforce adds a new Campaign Record Type, you need
+ to make sure that any custom picklist fields you have created, have their
+ appropriate choices and default value specified for the new record type.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Customize > Campaigns > Record Types.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/campaigns-record-types.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the label for 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Campaign” 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/volunteer-campaign.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the Picklists Available for Editing section, click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit” link for each picklist, and makes sure you have appropriate Values
+ and Defaults.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/campaign-picklist-edit.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The Status picklist describes the status of the campaigns.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The Type picklist allows users to pick the type of campaign during a campaign's
+ creation (e.g., Direct Mail or Benefit Concert).
+\end_layout
+
+\begin_layout Subsection
+Updating Contact and Lead Page Layouts
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Volunteers for Salesforce adds several custom fields to Leads and Contacts.
+ The following instructions will step you through the process of modifying
+ your page layouts to display and organize these fields
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{The following set of instructions requires permissions to edit
+ page layouts.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Customize > Leads > Page Layouts.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/leads-layouts.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit” link for the normal Lead Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{If would like different views for different roles (e.g., Volunteer
+ Coordinators see volunteer information first on  acontact page), you can
+ instead click the "New" button to create a layout that can be then assigned
+ to different roles in your Salesforce deployment.}
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/leads-edit-layout.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the set of fields available to add to your layout, scroll to the right,
+ and you will see there are four Volunteer related fields.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/leads-layout-editor.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Drag and drop the fields highlighted in the screenshot above to the place
+ on the page that you want..
+ We suggest you create a Volunteer Information section first.
+ If you wish to create a volunteer section:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+scroll back to the left of the fields section and drag the Section object
+ onto the page.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/section-button.png
+	scale 45
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+Fill out the information the dialogue requests and click 
+\begin_inset Quotes eld
+\end_inset
+
+Ok
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/create-section.png
+	scale 40
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Save” button.
+\end_layout
+
+\begin_layout Standard
+To edit the layout for the Contacts page, do the following
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Many of the following steps look exactly like the steps for editing
+ the Leads layout and thus are not accompanied by screenshots.}
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Customize > Contacts > Page Layouts.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit” link for the normal Contact Layout.
+ 
+\end_layout
+
+\begin_layout Enumerate
+In the set of fields available to add to your layout, scroll to the right,
+ and you will see there are ten Volunteer related fields.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/contacts-edit-layout.png
+	scale 45
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote[5mm]{Some of the fields in the screenshot above are greyed out
+ because they are already present in the current layout.
+ In a fresh install, none of these fields will be grey.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Drag/Drop these into your page layout where you prefer.
+ We suggest you create a Volunteer Information section first.
+ (Creating a section in the Contacts layout editor uses the same method
+ as the Leads editor).
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Related Lists” from the chooser at the top.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/contacts-related-lists.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Drag the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours
+\begin_inset Quotes erd
+\end_inset
+
+ related list onto the page.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/contacts-volunteer-hours.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Updating Volunteer Campaign, Volunteer Job, and Volunteer Shift Page Layouts
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce provides other custom buttons that allow users
+ to Mass Email members of a Campaign, Job or Shift and to see a Shift Calendar
+ for a Campaign and/or Job.
+ For most installations, these features should be present by default.
+ Since this documentation is aimed at first-time installations, instructions
+ will not be included.
+ Please refer to the original documentation if you are upgrading and need
+ to enable these features.
+\end_layout
+
+\begin_layout Chapter
+Volunteer Skills and Ability
+\end_layout
+
+\begin_layout Standard
+The Groundwire Volunteers package is designed to be used in an ongoing fashion.
+ There are some field picklists that are used in Leads, Contacts, and Volunteer
+ Jobs that you will want to modify initially or in the future
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+sidenote{Modifying these picklists will not affect information already saved
+ in Salesforce.
+ Changing the values won't affect old volunteer information.}
+\end_layout
+
+\end_inset
+
+.
+ To edit these lists: 
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Customize > Leads > Fields 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/leads-fields.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Scroll down to the 
+\begin_inset Quotes eld
+\end_inset
+
+Custom Fields and Relationships
+\begin_inset Quotes erd
+\end_inset
+
+ section.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/lead-custom-fields.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the label for either 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Skills
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Availability
+\begin_inset Quotes erd
+\end_inset
+
+ (it doesn't matter which you do first, as you will likely have to edit
+ both to suit your needs).
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/lead-skills-availability.png
+	scale 40
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+From the 
+\begin_inset Quotes eld
+\end_inset
+
+Picklist Values
+\begin_inset Quotes erd
+\end_inset
+
+ section, click on the 
+\begin_inset Quotes eld
+\end_inset
+
+New
+\begin_inset Quotes erd
+\end_inset
+
+ button to add any new choices you want (you can also delete choices you
+ don't need and reorder the choices).
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/lead-edit-skills.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Repeat these steps in Setup > App Setup > Customize > Contacts > Fields.
+ Make sure that you make the choices the same for each list in both Contacts
+ and Leads.
+\end_layout
+
+\begin_layout Enumerate
+Repeat these steps again in Setup > App Setup > Create Objects for the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Job
+\begin_inset Quotes erd
+\end_inset
+
+ object.
+ 
+\end_layout
+
+\begin_layout Subsection
+Custom Settings
+\end_layout
+
+\begin_layout Standard
+The Groundwire Volunteers for Salesforce package includes a set of custom
+ settings named Volunteers Settings.
+ It includes various fields that you can modify to customize the Volunteers
+ package to work with your Salesforce instance.
+ Here are the settings and their default values:
+\end_layout
+
+\begin_layout Enumerate
+Signup Matches Existing Contacts - Should the page VolunteersSignup try
+ to match the person to an existing Contact (by First Name, Last Name, Email).
+ Default is unchecked.
+ Note that this setting is only used by VolunteersSignup, and not any additional
+ pages.
+\end_layout
+
+\begin_layout Enumerate
+Signup Creates Contacts If No Match - Should the page VolunteersSignup create
+ new Contact records, if no existing contact is found (or Signup Matches
+ Existing Contacts is unchecked).
+ If this setting is unchecked, it will create Leads when no matches found.
+ Default is unchecked.
+ Note that this setting is only used by VolunteersSignup, and not any additional
+ pages 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Leads in Volunteers for Salesforce are much the same as they are
+ for businesses: they represent potential relationships.
+ You can use them to separate prospective volunteers from confirmed volunteers
+ and can track conversions of prospective volunteers to confirmed volunteers.
+ This requires more configuration and upkeep (described in a later section).
+ If you wish to treat all potential volunteers as Contacts, check this box
+ and skip the "Lead to Contact Field Mappings" section.
+ Note that the "Volunteer Status" field for Contacts has a "Prospective"
+ option, meaning you can still separate Confirmed from Prospective volunteers
+ using only Contacts.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Signup Bucket Account On Create - The name of the account to use when creating
+ new Contacts from the pages VolunteersSignup, VolunteersSignupFS, VolunteersJob
+Listing, and VolunteersJobListingFS.
+ If you are using the Non Profit Start Pack One-to-One model, leave this
+ setting blank.
+ If you are using the bucket model, set this to the name of the account;
+ usually 'Individual'.
+ Default is blank.
+\end_layout
+
+\begin_layout Standard
+To modify these settings do the following:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Custom Settings 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/custom-settings.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Manage
+\begin_inset Quotes erd
+\end_inset
+
+ link for Volunteers Settings.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/custom-settings-manage.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+New
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ (whichever button is available).
+\end_layout
+
+\begin_layout Enumerate
+Adjust the settings as you wish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{You can specify anything for the Name field.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Lead to Contact Field Mappings
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{Skip this section if you checked the "Signup Creates Contacts
+ If No Match" option above.}
+\end_layout
+
+\end_inset
+
+Volunteers for Salesforce includes a VisualForce page you can enable in
+ Salesforce Sites, and integrate into your website.
+ This page enables people to sign up to be a volunteer on your website.
+ Instructions on how to do this are later in this document.
+ If you use this functionality, you have the option having either Lead or
+ Contact records created.
+ If you use Leads, then you will want to specify the Lead Custom Field Mapping
+ so that the volunteer fields on the Lead will be copied over to the Contact
+ when the Lead is converted.
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Customize > Leads > Fields
+\end_layout
+
+\begin_layout Enumerate
+Scroll down to the 
+\begin_inset Quotes eld
+\end_inset
+
+Lead Custom Fields & Relationships
+\begin_inset Quotes erd
+\end_inset
+
+ section and click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Map Lead Fields
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/lead-map-fields.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Specify that 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Availability
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Notes
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Skills
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Status
+\begin_inset Quotes erd
+\end_inset
+
+ all map to their associated fields on the Contacts record.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/leads-map-page.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Ensure Lead Volunteer Status Field Default Value
+\end_layout
+
+\begin_layout Standard
+This step is only relevant to users upgrading Volunteers for Salesforce.
+ Check the original documentation for instructions on how to check this
+ field.
+\end_layout
+
+\begin_layout Subsection
+Ensure All Activities Allowed on Volunteer Jobs & Volunteer Shifts
+\end_layout
+
+\begin_layout Standard
+This step is only relevant to users upgrading Volunteers for Salesforce.
+ Check the original documentation for instructions on how to check this
+ field.
+\end_layout
+
+\begin_layout Subsection
+Ensure Workflow for Volunteer Hours is Activated
+\end_layout
+
+\begin_layout Standard
+Most of the Volunteer Reports use the Volunteer Hours End Date field to
+ filter on.
+ There is a workflow rule to set this End Date field if it isn’t filled
+ out when you enter records.
+ You need to ensure that this workflow rule is enabled after installation.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create > Workflow & Approvals > Workflow Rules.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-navigation.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the letter 
+\begin_inset Quotes eld
+\end_inset
+
+V
+\begin_inset Quotes erd
+\end_inset
+
+ in navigation links to see just the Volunteers workflows.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-filter.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Click on the “Activate”
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote[][1.1cm]{If the button says "Deactivate" instead of "Activate",
+ the workflow is already activated.
+ Do not click it again or it will deactivate the workflow.}
+\end_layout
+
+\end_inset
+
+ link for Volunteer Hours – Set End Date
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Images/workflow-hours-activate.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Email Notifications and Email Templates
+\end_layout
+
+\begin_layout Standard
+If you use the Volunteers Signup page or Volunteers Job Listing page on
+ your website, several email notifications will be sent when a new volunteer
+ signup occurs.
+ There are two Workflow Rules which by default, are activated.
+ These are Volunteer Signup – Contact and Volunteer Signup – Lead.
+ If you want to turn these off, do the following:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create Workflows & Approvals > Workflow Rules
+\end_layout
+
+\begin_layout Enumerate
+Scroll to the bottom to see the Volunteer workflows.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Deactivate
+\begin_inset Quotes erd
+\end_inset
+
+ to turn them off.
+\end_layout
+
+\begin_layout Standard
+Both of these Workflow Rules
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{If you are upgrading from a version before 1.14, there is an additional
+ step that you must take to get the alerts to work.
+ Check the original documentation for more information.}
+\end_layout
+
+\end_inset
+
+ use several Email Alerts.
+ The Volunteer Signup Thank You Email – Contact and Volunteer Signup Thank
+ You Email – Lead both send their email to the volunteer with the From Email
+ Address set to current user’s email address.
+ Due to these rules being run when the website creates the contact, the
+ from address will look like “volunteers Site Guest User”.
+ You should modify these two Email Alerts to use one of your Organization-Wide
+ Addresses.
+ To create an Organization-Wide Address, do the following:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Email Administration > Organization-Wide
+ Addresses.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/administration-setup-navigation.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click the 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/administration-organization-wide-email-address-add.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Provide a display name and a valid email address
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{You must have access to this email address, as Salesforce sends
+ a confirmation email to make sure that you are the owner.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Select 
+\begin_inset Quotes eld
+\end_inset
+
+Allow All Profiles to Use this From Address
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/administration-add-email-address.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Check the email that you specified for the message from Salesforce and click
+ the validation link to confirm that you own the account.
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create > Workflow & Approvals > Email Alerts.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-email-alerts.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Scroll down to the bottom of Email alerts to see the Volunteer related email
+ alerts.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ for one of the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Signup Thank You
+\begin_inset Quotes erd
+\end_inset
+
+ alert
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{If you are using the Lead method, you will eventually edit both
+ Thank You alerts.
+ If you are using Contacts only, you only have to edit "Volunteer Signup
+ Thank You Email Alert - Contact".} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/email-alerts-thank-you.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Scroll down to the 
+\begin_inset Quotes eld
+\end_inset
+
+From Email Address
+\begin_inset Quotes erd
+\end_inset
+
+ field and choose the organization-wide email address that you created above.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-alerts-organization-email-address.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If you are using both Leads and Contacts, remember to perform the steps
+ above on both alerts.
+\end_layout
+
+\begin_layout Standard
+When contacts sign up online, the Volunteers for Salesforce app also sends
+ email alerts to users to let them know that a Contact or Lead has signed
+ up.
+ By default, the email goes to the Lead or Contact's owner (usually whoever
+ created the contact or lead).
+ You can adjust the settings to send a notification to whichever user
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{You must create the user before you begin these steps.}
+\end_layout
+
+\end_inset
+
+ you wish (e.g., a volunteer coordinator) by doing the following:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create > Workflow & Approvals > Email Alerts
+\end_layout
+
+\begin_layout Enumerate
+Scroll down to the bottom of the email alerts to see the volunteer related
+ email alerts.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-alert-volunteer-notification.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+edit
+\begin_inset Quotes erd
+\end_inset
+
+ for a Volunteer Signup Notification Email Alert
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Again, if you are using both Leads and Contacts, you will have
+ to edit both of these alerts, but if you are only using Contacts, you can
+ skip editing the Lead alert without consequence.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Find the list of Recipients and edit.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{If you have multiple volunteer coordinators, instead of sending
+ the alert to a specific user, you can send the alert to a role.
+ If you wish to this, change the Recipient Type from "User" to "Role" and
+ choose the appropriate role.
+ Make sure that you create a role for volunteer coordinators and assigning
+ users to that role first.}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-alert-volunteer-notification-recipient.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If you are using both Leads and Contacts, remember to change these settings
+ for both notifications.
+\end_layout
+
+\begin_layout Standard
+The various Volunteer Email Alerts all use Email Templates that you will
+ want to customize for your organization.
+ These email templates are also made available to the Mass Email Volunteers
+ page.
+ To edit these templates:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Communications Templates.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-templates.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Choose the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteers Email Templates
+\begin_inset Quotes erd
+\end_inset
+
+ folder to see the volunteer related templates.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-templates-folder.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ for each of the templates that you wish to modify.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/email-templates-templates.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Edit the templates as you need.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Customizing the Volunteers Wizard
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{The Volunteers Wizard comes with several relevant default fields.
+ You will only need to edit this if you have custom Campaign fields that
+ you wish to add to the Volunteers Wizard or if you don't plan on using
+ all of the included fields.}
+\end_layout
+
+\end_inset
+
+Volunteers for Salesforce now allows you to specify the Campaign fields
+ to display on the Volunteers Wizard, using a Field Set.
+ This allows you to include custom fields and standard fields that you want
+ the user to fill out.
+ Here are the steps to customize the Field Set:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Customize > Campaigns > Field Sets.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/campaign-field-sets.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ link for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{VolunteersWizardFS}
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/campaign-field-sets-volunteers-wizard.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+To add fields to the field set, drag them from the top section into the
+ 
+\begin_inset Quotes eld
+\end_inset
+
+In the Field Set
+\begin_inset Quotes erd
+\end_inset
+
+ box.
+\end_layout
+
+\begin_layout Enumerate
+To remove fields from the Field Set, mouse over the field and click the
+ 
+\begin_inset Quotes eld
+\end_inset
+
+-
+\begin_inset Quotes erd
+\end_inset
+
+ icon.
+\end_layout
+
+\begin_layout Enumerate
+To reorder the fields, drag and drop them into place.
+\end_layout
+
+\begin_layout Enumerate
+To make fields required, mouse over the field and click the wrench icon
+ and select 
+\begin_inset Quotes eld
+\end_inset
+
+Required
+\begin_inset Quotes erd
+\end_inset
+
+ from the pop-up.
+\end_layout
+
+\begin_layout Enumerate
+When finished, click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Customizing Mass Edit Volunteer Hours
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce now allows you to specify the Volunteer Hour fields
+ to display on the Mass Edit Volunteer Hours page, using a Field Set.
+ This allows you to include custom fields and standard fields that you want
+ the user to fill out.
+ Here are the steps to customize the Field Set:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App > Create > Objects.
+\end_layout
+
+\begin_layout Enumerate
+Click on the label for 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Scroll down the page to the Field Sets section.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ link for MassEditVolunteerHours.
+\end_layout
+
+\begin_layout Enumerate
+Follow the same steps in the last section to add, remove, and reconfigure
+ the fields in the Mass Edit Volunteer Hours page.
+\end_layout
+
+\begin_layout Part
+Configuring Volunteer Signup for Your Website
+\end_layout
+
+\begin_layout Chapter
+Enabling Salesforce Sites
+\end_layout
+
+\begin_layout Standard
+If you have a website, and you would like to have a page on your site where
+ people can sign up to express their interest in volunteering, Volunteers
+ for Salesforce provides the page you need.
+ Volunteers for Salesforce also provides a separate page that you can host
+ on your website to display available volunteer jobs (and optionally shifts),
+ and allow volunteers to signup for these specific job (and shifts).
+\end_layout
+
+\begin_layout Standard
+In order to display Salesforce forms as web pages, you must enable Sites
+ in your Salesforce database:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/setup-sites-navigation.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Specify the name you want to use for your domain
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Note that once set, you cannot modify this name.
+ If you plan to redirect users to the volunteers page hosted on this site
+ or you plan to use the site for other purposes, you should choose a name
+ that is appropriate for your organization.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Check Availability
+\begin_inset Quotes erd
+\end_inset
+
+ to make sure the name you chose is not already in use.
+\end_layout
+
+\begin_layout Enumerate
+Read and check the “Sites Terms of Use.”
+\end_layout
+
+\begin_layout Enumerate
+Click “Register My Force.com Domain.”
+\end_layout
+
+\begin_layout Chapter
+Creating a Site
+\end_layout
+
+\begin_layout Standard
+Now that you have enabled Salesforce Sites, you will create an actual site
+ to host the pages for Volunteers for Salesforce:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+New
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+On the edit page, fill in the required fields and any other fields that
+ you wish: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-new-site.png
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Site Label: Can be anything but 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteers
+\begin_inset Quotes erd
+\end_inset
+
+ is recommended for clarity.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Site Name: Can be anything but 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteers
+\begin_inset Quotes erd
+\end_inset
+
+ is recommended for clarity.
+\end_layout
+
+\begin_layout Enumerate
+Site Contact: Choose the contact who will handle the technical issues for
+ the site.
+ Use the magnifying glass icon next to the field to search for the appropriate
+ contact.
+\end_layout
+
+\begin_layout Enumerate
+Active Site Home Page: Use the default 
+\begin_inset Quotes eld
+\end_inset
+
+UnderConstruction
+\begin_inset Quotes erd
+\end_inset
+
+ page that Salesforce provides.
+ To do this:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Click on the magnifying glass icon next to the field.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-active-home-page-field.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the window that pops up type 
+\begin_inset Quotes eld
+\end_inset
+
+UnderConstruction
+\begin_inset Quotes erd
+\end_inset
+
+ into the search box.
+ There should only be one result.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-active-home-page-search.png
+	scale 55
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click the result to insert the page into the field.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Other fields can be ignored if you wish.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Configuring-Access"
+
+\end_inset
+
+Configuring Access
+\end_layout
+
+\begin_layout Standard
+You now need to enable the specific Visualforce pages and classes that will
+ be used on your Site
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+marginnote{If you do not follow these steps, potential volunteers will not
+ be able to edit the fields on your sites.}
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites
+\end_layout
+
+\begin_layout Enumerate
+Click on the label for the site you created above to go to its detail page.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-configure-access.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Public Access Settings
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-details-page.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Under the 
+\begin_inset Quotes eld
+\end_inset
+
+Apps
+\begin_inset Quotes erd
+\end_inset
+
+ heading, click 
+\begin_inset Quotes eld
+\end_inset
+
+Visualforce Page Access
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-access-settings.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+GW_Volunteers.VolunteersSignup
+\begin_inset Quotes erd
+\end_inset
+
+ to select it and click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+GW_Volunteers.VolunteersJobListing
+\begin_inset Quotes erd
+\end_inset
+
+ to select it and click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+GW_Volunteers.VolunteersSignupFS
+\begin_inset Quotes erd
+\end_inset
+
+ to select it and click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+GW_Volunteers.JobCalendar
+\begin_inset Quotes erd
+\end_inset
+
+ to select it and click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Add
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-visualforce-access-settings.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+This should bring you back to the Profile page for your site.
+ Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ again.
+\end_layout
+
+\begin_layout Enumerate
+Under the 
+\begin_inset Quotes eld
+\end_inset
+
+Apps
+\begin_inset Quotes erd
+\end_inset
+
+ section, click on 
+\begin_inset Quotes eld
+\end_inset
+
+Objects and Tabs
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Find the 
+\begin_inset Quotes eld
+\end_inset
+
+Accounts
+\begin_inset Quotes erd
+\end_inset
+
+ link in the list and click on it.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-objects-and-tabs-accounts.png
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Under 
+\begin_inset Quotes eld
+\end_inset
+
+Object Permissions
+\begin_inset Quotes erd
+\end_inset
+
+ make sure the 
+\begin_inset Quotes eld
+\end_inset
+
+Read
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ permissions are both checked.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-objects-and-tabs-accounts-permissions.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Under 
+\begin_inset Quotes eld
+\end_inset
+
+Field Permissions
+\begin_inset Quotes erd
+\end_inset
+
+, make sure that 
+\begin_inset Quotes eld
+\end_inset
+
+Read
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ are checked for every field that you wish to make visible on the volunteer
+ signup form that you will eventually put on your site
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{It helps to have all of the fields created before performing this
+ step, though it is not necessary.
+ If you create a custom field in the future or wish to include a default
+ field, you can make it available using this menu.}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Repeat steps a-d for the 
+\begin_inset Quotes eld
+\end_inset
+
+Campaigns
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Contacts
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{For the "Documents" object, you need only set the permissions to
+ "Read", not "Read" and "Edit".}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes erd
+\end_inset
+
+Households
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Leads
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Jobs
+\begin_inset Quotes erd
+\end_inset
+
+, and 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Shifts
+\begin_inset Quotes erd
+\end_inset
+
+ objects.
+\end_layout
+
+\begin_layout Chapter
+Setting the Correct Time Zone
+\end_layout
+
+\begin_layout Standard
+You need to tell Salesforce what time zone to display Job Shift dates &
+ times with.
+ It defaults to GMT, so if this is not the time zone you want, you must
+ change it:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites
+\end_layout
+
+\begin_layout Enumerate
+Click on the label for your site to go to its detail page.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Public Access Settings
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Assigned Users
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/sites-time-zone-assigned-users.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ button next to the Guest User account for your site.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-time-zone-guest-user.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Scroll to 
+\begin_inset Quotes eld
+\end_inset
+
+Locale Settings
+\begin_inset Quotes erd
+\end_inset
+
+ and choose the appropriate time zone from the 
+\begin_inset Quotes eld
+\end_inset
+
+Time Zone
+\begin_inset Quotes erd
+\end_inset
+
+ picklist.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-time-zone-guest-user-locale.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Chapter
+Enabling Your Site
+\end_layout
+
+\begin_layout Standard
+Now the site must be enabled:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Activate
+\begin_inset Quotes erd
+\end_inset
+
+ link for the site.
+\end_layout
+
+\begin_layout Chapter
+Testing Your Site
+\end_layout
+
+\begin_layout Standard
+Now you should test the site to make sure it is set up properly:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Develop > Sites
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Site URL
+\begin_inset Quotes erd
+\end_inset
+
+ for your site.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/sites-site-url.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+This will display the default home page that you chose above (if you didn't
+ change it, it will show the 
+\begin_inset Quotes eld
+\end_inset
+
+Under Construction
+\begin_inset Quotes erd
+\end_inset
+
+ page.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If the link goes to the correct page, go to the address bar and add 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{
+\end_layout
+
+\end_inset
+
+ /GW__Volunteers__VolunteersSignup
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ to the end of the URL
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{
+\end_layout
+
+\end_inset
+
+For example, the site URL in the screenshot is http://newhopefamilyshelter.force.c
+om/volunteers, so the link to the volunteer sign up page for that is http://newh
+opefamilyshelter.force.com/volunteer/
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+GW__Volunteers__VolunteersSignup
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Enter some test data in the form and click 
+\begin_inset Quotes eld
+\end_inset
+
+Submit
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Depending on your settings, you should have created either a new Lead or
+ a new Contact.
+ Check the appropriate place to make sure that the Lead or Contact was created
+ successfully.
+\end_layout
+
+\begin_layout Chapter
+Integrating Volunteer Signup into Your Website
+\end_layout
+
+\begin_layout Standard
+Now that you have the form working as a stand alone web page, you can integrate
+ it into a page on your own website.
+ This is accomplished by embedding an iframe on your site.
+ It should something like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+<iframe src="[site-url]/GW_Volunteers__VolunteersSignup" frameborder="0"
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+scrolling="false" height="600" width="500"></iframe>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You should edit the properties of the <iframe> tag to fit your needs.
+ If you are not familiar with HTML, use 
+\begin_inset CommandInset href
+LatexCommand href
+name "this page"
+target "http://www.w3schools.com/tags/tag_iframe.asp"
+
+\end_inset
+
+ for reference.
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Styling-the-Volunteer"
+
+\end_inset
+
+Styling the Volunteer Signup Form
+\end_layout
+
+\begin_layout Standard
+The Volunteer Signup form page uses a CSS file that is installed to your
+ Salesforce database.
+ You can modify the contents of the CSS file to change the signup form to
+ match the style of your organization's website:
+\end_layout
+
+\begin_layout Enumerate
+Go to the 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset Quotes erd
+\end_inset
+
+ tab
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{This should be in the list of tabs across the top of the page that
+ begins with the "Home" tab.
+ If it is not there, at the end of the list of tabs there should be a +
+ symbol.
+ Click it and choose "Documents" from the list of tabs that appears.}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+At the 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset Quotes erd
+\end_inset
+
+ page, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteers Documents
+\begin_inset Quotes erd
+\end_inset
+
+ from the list of folders.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/documents-volunteers-folder.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Find 
+\begin_inset Quotes eld
+\end_inset
+
+VolunteersSignupCSS.css
+\begin_inset Quotes erd
+\end_inset
+
+ and click the 
+\begin_inset Quotes eld
+\end_inset
+
+View
+\begin_inset Quotes erd
+\end_inset
+
+ link.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/documents-volunteer-css.png
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+This will display CSS currently used by the Volunteers Signup form.
+ Copy the CSS
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Note: The CSS has a section that is commented out.
+  Uncommenting this will change the styles to give you an idea of what elements
+ of the page can be styled with CSS.}
+\end_layout
+
+\end_inset
+
+ into a text editor and modify it as you wish
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+Ff you are unfamiliar with CSS you can find 
+\begin_inset CommandInset href
+LatexCommand href
+name "tutorials"
+target "http://www.w3schools.com/css/default.asp"
+
+\end_inset
+
+ online.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Save the modified CSS to your local machine.
+\end_layout
+
+\begin_layout Enumerate
+Go back to the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteers Documents
+\begin_inset Quotes erd
+\end_inset
+
+ folder in the 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset Quotes erd
+\end_inset
+
+ tab.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+VolunteersSignupCSS.css
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Replace Document Button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/documents-save-css.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+On the 
+\begin_inset Quotes eld
+\end_inset
+
+Replace Document
+\begin_inset Quotes erd
+\end_inset
+
+ page, choose the file that you saved to your computer and click 
+\begin_inset Quotes eld
+\end_inset
+
+Replace Document
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/documents-replace-css.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Refresh your Volunteer Signup page to see your new style.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+Note: When new versions of Volunteers for Salesforce modify this file, Salesforc
+e will not update your document when you upgrade.
+ You must manually edit the CSS file and upload it to include newer markup.
+ Release notes will point out when this is necessary)
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Customizing-the-Fields"
+
+\end_inset
+
+Customizing the Fields Displayed on the Volunteer Signup Form
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce allows you to customize the fields displayed on
+ the signup form using Field Sets
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+sidenote{
+\end_layout
+
+\end_inset
+
+To use page with field sets, you must direct users to the GW__Volunteers__Volunt
+eersSignupFS page instead of the GW__Volunteers__VolunteersSignup in the
+ steps above.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+ To customize the fields use the following process: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+marginnote{Note: The field sets page does not support creating Leads, so
+ if you have Volunteers set up to create Leads from web signups instead
+ of contacts, you cannot use this feature.}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Customize > Contacts >Field Sets 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/contacts-field-sets.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ link next to 
+\begin_inset Quotes eld
+\end_inset
+
+VolunteersSignupFS
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/contacts-field-sets-choose.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+This will display a page similar to the Page Layout Editor we used in one
+ of the above steps.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+To add a field to the signup form, drag it from the list of available fields
+ to the 
+\begin_inset Quotes eld
+\end_inset
+
+In the Field Set
+\begin_inset Quotes erd
+\end_inset
+
+ box.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+Note: The VolunteersSignupFS page only supports adding fields from the Contacts
+ object, so if you need to create custom fields for the signup form, you
+ should create them under Contacts.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+To remove fields, hover over them and click the minus icon.
+ 
+\end_layout
+
+\begin_layout Enumerate
+To make the field required, hover over it and click the wrench icon, and
+ then check the 
+\begin_inset Quotes eld
+\end_inset
+
+required
+\begin_inset Quotes erd
+\end_inset
+
+ box in the windows that appears.
+\end_layout
+
+\begin_layout Enumerate
+To reorder the field, drag them to a new position.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/contacts-field-sets-edit.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+When you are finished click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Ensure that the fields that you added to the form are enabled for the volunteer
+ sites user profile.
+ To do this, refer to the Configuring Access chapter on page 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "chap:Configuring-Access"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Localizing the Volunteer Signup Form
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce supports localization into French.
+ You can also localize into additional languages, which will be explained
+ in a later section.
+ In order to have VolunteersSignupFS display in a different language, you
+ must include a parameter on the URL: 
+\end_layout
+
+\begin_layout Itemize
+Language – The language used to display labels that have associated translations
+ in Salesforce.
+ This value overrides the language of the user viewing the page.
+ Possible values for this attribute include any language keys for languages
+ supported by Salesforce, for example, "en" or "en-US".
+ Volunteers for Salesforce also supports “fr” for French.
+ An example: GW_Volunteers__VolunteersSignupFS?Language=fr 
+\end_layout
+
+\begin_layout Standard
+When you use the Language parameter, all of the field names, picklist values,
+ and messages will be displayed in the specified language (assuming a translatio
+n is provided).
+ Please review the section Enabling Localization in Volunteers for Salesforce
+ to find out additional steps you must take.
+\end_layout
+
+\begin_layout Chapter
+Uploading Documents with the Volunteer Signup Form
+\end_layout
+
+\begin_layout Standard
+The VolunteersSignupFS page and VolunteersJobListingFS page also support
+ a URL parameter to tell the page to include a file upload button, thus
+ allowing a document to be stored along with the matched or created Contact
+ record:
+\end_layout
+
+\begin_layout Itemize
+FileUploadLabel – a string to specify that a file upload button should be
+ included on the page.
+ The string is displayed as a label in the left column, next to the button.
+ If the label contains spaces, you need to encode them in the URL with %20.
+ An example: GW_Volunteers__VolunteersSignupFS?FileUploadLabel=Please%20include%
+20yo ur%20resume
+\end_layout
+
+\begin_layout Chapter
+Integrating Volunteer Job Listings & Signup into your Web Site
+\end_layout
+
+\begin_layout Standard
+Similar to hosting the VolunteersSignup page in your website, you can host
+ the VolunteersJobListing or VolunteersJobListingFS page as well.
+ Use and IFRAME tag similar to the following:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+<iframe src="[site-rul]/GW_Volunteers__VolunteerJobListings" frameborder="0"
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+scrolling="false" height="600" width="500"></iframe>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The VolunteersJobListing page supports the following parameters on its URL:
+\end_layout
+
+\begin_layout Itemize
+campaignId – a 15 character Salesforce ID of the Campaign to display jobs
+ from.
+ If not provided, the page will look at all Campaigns that are active.
+ In either case, the page will then display all jobs that have “Display
+ on Website” checked.
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowJobName – if set to 0 (zero), the job name is not displayed.
+ Defaults to 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowDescription – if set to 0 (zero), the job’s description rich text field
+ is not displayed.
+ Defaults to 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowLocationAddress – if set to 0 (zero), the job’s address is not displayed.
+ Defaults to 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowLocationInfo – if set to 0 (zero), the job’s location information rich
+ text field is not displayed.
+ Defaults to 1.
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowSkills – if set to 1, the job’s desired skills are shown as a semicolon
+ separated list.
+ Defaults to 0 (zero).
+ 
+\end_layout
+
+\begin_layout Itemize
+ShowShifts – if set to 0 (zero), the job’s shifts are not displayed, and
+ just a single Sign Up button per job is displayed.
+ Note that if Shifts are being displayed, but a given job has no shifts,
+ then that job will just have a single Sign Up button displayed.
+ Defaults to 1.
+\end_layout
+
+\begin_layout Standard
+VolunteersJobListingFS also supports these additional parameters:
+\end_layout
+
+\begin_layout Itemize
+Language – The language used to display labels that have associated translations
+ in Salesforce.
+ This value overrides the language of the user viewing the page.
+ Possible values for this attribute include any language keys for languages
+ supported by Salesforce, for example, "en" or "en-US".
+ Volunteers for Salesforce also supports “fr” for French.
+ 
+\end_layout
+
+\begin_layout Itemize
+DateFormat – a formatting string that controls how Shift dates are displayed.
+ It handles the following tokens: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+MM – displays the numerical month, starting with a 0 if less than 10.
+ (01 – 12) 
+\end_layout
+
+\begin_layout Itemize
+M – displays the numerical month, with no starting 0.
+ (1-12) 
+\end_layout
+
+\begin_layout Itemize
+dd – displays the calendar day, with a starting 0 if < 10.
+ (01 – 31) 
+\end_layout
+
+\begin_layout Itemize
+d – displays the calendar day, with no starting 0.
+ (1 – 31) 
+\end_layout
+
+\begin_layout Itemize
+yyyy – displays a four digit year.
+ (eg.
+ 2011) 
+\end_layout
+
+\begin_layout Itemize
+yy – displays a two digit year.
+ (eg.
+ 11) The default DateFormat string used, if not specified, is “m/d/yyyy”.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+TimeFormat – a formatting string that controls how Shift times are displayed.
+ It handles the following tokens: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+hh – displays the hour from 1 - 12, with a leading zero if less than 10.
+ (01 – 12) 
+\end_layout
+
+\begin_layout Itemize
+h – displays the hour from 1 – 12, with no leading zero.
+ (1 – 12) 
+\end_layout
+
+\begin_layout Itemize
+HH – displays the hour from 1 – 23, with a leading zero if less than 10.
+ (01 – 23) 
+\end_layout
+
+\begin_layout Itemize
+H – displays the hour from 1 – 23, with no leading zero.
+ (1 – 23)
+\end_layout
+
+\begin_layout Itemize
+mm – displays the minutes, with a leading zero if less than 10.
+ (00 – 59) 
+\end_layout
+
+\begin_layout Itemize
+m – displays the minutes, with no leading zero.
+ (0-59) o
+\end_layout
+
+\begin_layout Itemize
+tt – displays the time period as am or pm.
+ The default TimeFormat string used, if not specified, is “h:mm tt”.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+FileUploadLabel – a string to specify that a file upload button should be
+ included on the signup dialog.
+ The string is displayed as a label in the left column, next to the button.
+ If the label contains spaces, you need to encode them in the URL with %20.
+ An example: GW_Volunteers__VolunteersJobListingFS?FileUploadLabel=Please%20incl
+ude% 20your%20resume
+\end_layout
+
+\begin_layout Standard
+To specify parameters on a URL, you use the format:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+baseurl?param1=value1&param2=value2&param3=value3....
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+ So your URL might look like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+http://[url-to-page]?ShowLocationAddress=0&ShowSkills=1&Language=fr
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Styling the Volunteer Listing Form
+\end_layout
+
+\begin_layout Standard
+The VolunteersJobListing page uses a cascading style sheet (css) that is
+ a css file document that the package installs into your Salesforce database.
+ You are able to modify the contents of this file to provide your own css
+ that has the styles defined to match your website.
+ Follow the same instructions that are provided for the VolunteersSignup
+ page on page 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "chap:Styling-the-Volunteer"
+
+\end_inset
+
+.
+ The only difference is that the css file is called VolunteersJobListingCSS.css.
+\end_layout
+
+\begin_layout Chapter
+Customizing the Fields Displayed on the Volunteer Job Listing Form
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce now includes a Volunteer Job Listing page whose
+ signup dialog you can customize with Field Sets.
+ Field Sets allow a Salesforce administrator to specify which fields to
+ include on a Visualforce page.
+ To use this new customizable page, have your URL refer to GW_Volunteers__Volunt
+eersJobListingFS, by just adding the FS to the end of the page name.
+ 
+\end_layout
+
+\begin_layout Standard
+The VolunteersJobListingFS signup dialog will always first include the FirstName
+, LastName, and Email fields, since these are used for matching against
+ existing Contacts.
+ You are able to then specify the additional Contact fields you want on
+ the form by modifying the Contact VolunteersJobListingFS field set.
+ You are also able to specify any Volunteer Hours fields you would like
+ on the signup dialog, by modifying the Volunteer Hours VolunteersJobListingFS
+ field set.
+ Modifying these field sets is as described under the previous section for
+ the VolunteersSignup form on page 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "chap:Customizing-the-Fields"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Integrating Job Shift Calendar & Signup into your Web Site
+\end_layout
+
+\begin_layout Standard
+Similar to hosting the VolunteersJobListingFS page in your website, you
+ can host the JobCalendar page as well.
+ Use and IFRAME tag similar to the following:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lstlisting}
+\end_layout
+
+\begin_layout Plain Layout
+
+<iframe src="[site-url]/GW_Volunteers__JobCalendar" frameborder="0" 
+\end_layout
+
+\begin_layout Plain Layout
+
+scrolling="false" height="600" width="500"></iframe>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lstlisting}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The JobCalendar page supports the all of the parameters for the VolunteersJobLis
+tingFS page
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{
+\end_layout
+
+\end_inset
+
+The VolunteersJobListingFS page is opened when the user clicks on a shift
+ in the calendar, and these parameters are passed on to the VolunteersJobListing
+FS page, to control its display and behavior.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ and the following additional parameters in its URL:
+\end_layout
+
+\begin_layout Itemize
+campaignId – a 15 character Salesforce ID of the Campaign to display job
+ shifts from.
+ If not provided, the page will look at all Volunteer Campaigns that are
+ active.
+ In either case, the page will then display all jobs that have “Display
+ on Website” checked.
+ 
+\end_layout
+
+\begin_layout Itemize
+volunteerJobId – a 15 character Salesforce ID of a specific job to display
+ shifts from.
+ If provided, this will set the calendar’s date to the date of the first
+ shift for that job.
+ 
+\end_layout
+
+\begin_layout Itemize
+volunteerShiftId – a 15 character Salesforce ID of a specific job shift
+ to display.
+ If provided, this will set the calendar’s date to the date of the specified
+ Shift.
+ 
+\end_layout
+
+\begin_layout Itemize
+Language – The language used to display labels that have associated translations
+ in Salesforce.
+ This value overrides the language of the user viewing the page.
+ Possible values for this attribute include any language keys for languages
+ supported by Salesforce, for example, "en" or "en-US".
+ Volunteers for Salesforce also supports “fr” for French.
+ 
+\end_layout
+
+\begin_layout Itemize
+Print – if set to 1, the calendar will display in a view optimized for printing
+ on a single page.
+ Defaults to 0 (zero).
+ 
+\end_layout
+
+\begin_layout Itemize
+initialDate – a date and time value specified in GMT which will set the
+ calendar’s current date.
+ 
+\end_layout
+
+\begin_layout Itemize
+CalendarView – a string that’s either “month”, “agendaWeek”, or “agendaDay”,
+ that set’s the calendar’s initial view.
+ Defaults to “month”.
+\end_layout
+
+\begin_layout Chapter
+Controlling when Job Shifts are Full
+\end_layout
+
+\begin_layout Standard
+All of the web pages that allow job shift sign up will display a Sign Up
+ link as long as the Shift’s Volunteers Still Needed field is greater than
+ zero.
+ The only volunteers that are counted against this field are those with
+ an Hours Status of “Completed” or “Confirmed”.
+ By default, the web pages create new Volunteer Hours records with a Status
+ of “Web Sign Up”.
+ Thus these sign ups will not change the number still needed and the job
+ will continue to allow sign ups from the web page.
+\end_layout
+
+\begin_layout Standard
+To cause the web page to display a shift as full, one must either change
+ the Status on enough Volunteer Hours records from “Web Sign Up” to “Confirmed”,
+ or one can reduce the Desired # of Volunteers field on the Shift.
+\end_layout
+
+\begin_layout Standard
+If you want the web sign ups to automatically become confirmed, so the shift
+ will fill up with the first sign ups, you can create a workflow rule to
+ update the Hours Status:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create > Workflow & Approval Rules.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-navigation.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+New Rule
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-new-rule.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Select object
+\begin_inset Quotes erd
+\end_inset
+
+ picklist, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours
+\begin_inset Quotes erd
+\end_inset
+
+ and click 
+\begin_inset Quotes eld
+\end_inset
+
+Next
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-select-object.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Name the rule 
+\begin_inset Quotes eld
+\end_inset
+
+Confirm Volunteer Web Signups
+\begin_inset Quotes erd
+\end_inset
+
+ or something similar.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-name-rule.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Evaluation Criteria
+\begin_inset Quotes erd
+\end_inset
+
+ section, choose, 
+\begin_inset Quotes eld
+\end_inset
+
+Only when a record is created
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-evaluation-criteria.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Rule Criteria
+\begin_inset Quotes erd
+\end_inset
+
+ section, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Run this rule if the following criteria are met
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-rule-criteria-run.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the first row of the rule criteria, choose the 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours: Status
+\begin_inset Quotes erd
+\end_inset
+
+ field, set the operator to 
+\begin_inset Quotes eld
+\end_inset
+
+Equals
+\begin_inset Quotes erd
+\end_inset
+
+, and change the value to 
+\begin_inset Quotes eld
+\end_inset
+
+Web Sign Up
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-rule-criteria.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Save & Next
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Immediate Workflow Action
+\begin_inset Quotes erd
+\end_inset
+
+ section on the next page, click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Add Workflow Action
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown and choose 
+\begin_inset Quotes eld
+\end_inset
+
+New Field Update
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-workflow-action.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fill in a name, and in the 
+\begin_inset Quotes eld
+\end_inset
+
+Fields to Update
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Hours, Status
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-signup-update-status-action.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In the options that appear, scroll to the 
+\begin_inset Quotes eld
+\end_inset
+
+Specify New Field Value
+\begin_inset Quotes erd
+\end_inset
+
+ section and choose 
+\begin_inset Quotes eld
+\end_inset
+
+A specific value
+\begin_inset Quotes erd
+\end_inset
+
+ and select 
+\begin_inset Quotes eld
+\end_inset
+
+Confirmed
+\begin_inset Quotes erd
+\end_inset
+
+ from the dropdown menu.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/workflow-signup-update-new-field-value.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click the 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Done
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+On the details page that appears, click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Activate
+\begin_inset Quotes erd
+\end_inset
+
+ button to activate your workflow.
+\end_layout
+
+\begin_layout Chapter
+Changing the Colors used in the Job Shift Calendar
+\end_layout
+
+\begin_layout Standard
+The Job Shift Calendar displays unique colors for each Job in the given
+ month.
+ All shifts for a given job will have the same color.
+ The actual color values are stored in a custom label that you can override,
+ if you want to use different colors
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{
+\end_layout
+
+\end_inset
+
+You need to first follow the instructions in the 
+\begin_inset Quotes eld
+\end_inset
+
+Enabling Localization
+\begin_inset Quotes erd
+\end_inset
+
+ chapter on page 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "chap:Enabling-Localization"
+
+\end_inset
+
+ to enable customizing labels.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > App Setup > Create > Custom Labels.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/shift-calendar-colors-custom-labels.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the letter 
+\begin_inset Quotes eld
+\end_inset
+
+L
+\begin_inset Quotes erd
+\end_inset
+
+ in the navigation across the top.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+labelColorValues
+\begin_inset Quotes erd
+\end_inset
+
+ link.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/shift-calendar-labelColorValues.png
+	scale 45
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on the button for 
+\begin_inset Quotes eld
+\end_inset
+
+New Local Translations/Overrides
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Put your new color names in the 
+\begin_inset Quotes eld
+\end_inset
+
+Translation Text
+\begin_inset Quotes erd
+\end_inset
+
+ box using the following format: double quote each color and separate them
+ with commas
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+marginnote{
+\end_layout
+
+\end_inset
+
+The colors are used in order each month, so the first job of the month gets
+ the first color (which is used for all shifts from this job), and the second
+ job gets the second color, etc.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Part
+Localization and Renaming Labels
+\end_layout
+
+\begin_layout Chapter
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Enabling-Localization"
+
+\end_inset
+
+Enabling Localization
+\end_layout
+
+\begin_layout Standard
+Volunteers for Salesforce supports English and French.
+ In addition, you can provide support for additional languages, if you can
+ provide translation for all the terms.
+\end_layout
+
+\begin_layout Standard
+In order to enable localization support, you must turn on the Translation
+ Workbench:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Translation Workbench > Translation
+ Settings.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename Images/localization-translation-settings.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If you have not previously enabled the Translation Workbench, click 
+\begin_inset Quotes eld
+\end_inset
+
+Enable
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagebreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+On the 
+\begin_inset Quotes eld
+\end_inset
+
+Supported Languages
+\begin_inset Quotes erd
+\end_inset
+
+ page, click the 
+\begin_inset Quotes eld
+\end_inset
+
+Edit
+\begin_inset Quotes erd
+\end_inset
+
+ link for each language you wish to support and do the following: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/localization-edit-languages.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+On the 
+\begin_inset Quotes eld
+\end_inset
+
+Language Translation Edit
+\begin_inset Quotes erd
+\end_inset
+
+ page, check the 
+\begin_inset Quotes eld
+\end_inset
+
+Active
+\begin_inset Quotes erd
+\end_inset
+
+ checkbox, so it is enabled.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename Images/localization-activate-language.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If you want to do additional translating for that language, add the appropriate
+ users to the list of translators.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+marginnote{
+\end_layout
+
+\end_inset
+
+If you wish to translate Volunteers for Salesforce into a language that
+ is not currently provided, or you wish to translate terms differently,
+ please refer to Salesforce Help for full instructions on using the Translation
+ Workbench.
+ In addition, please contact Groundwire and let them know about your work.
+ They would like to include additional languages with the Volunteers for
+ Salesforce package.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ Here are some instructions on typical translations you may want to do:
+\end_layout
+
+\begin_layout Chapter
+Translate the Contact Volunteer Skills Picklist
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Translation Workbench > Translate.
+\end_layout
+
+\begin_layout Enumerate
+Pick the language that needs a translation in the 
+\begin_inset Quotes eld
+\end_inset
+
+Language
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Setup Component
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Picklist Value
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Object
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Contact
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In the displayed tree control, scroll down and find 
+\begin_inset Quotes eld
+\end_inset
+
+Volunteer Skills
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
++
+\begin_inset Quotes erd
+\end_inset
+
+ button and you will see a list of the picklist values displayed.
+\end_layout
+
+\begin_layout Enumerate
+Hover over the middle column for each term and click on its pencil icon.
+\end_layout
+
+\begin_layout Enumerate
+Enter the translation.
+\end_layout
+
+\begin_layout Enumerate
+Repeat for each value in the picklist that needs translation.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Override the English Term for a Field or Button
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Translation Workbench > Override
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Package
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose 
+\begin_inset Quotes eld
+\end_inset
+
+Groundwire Volunteers for Salesforce
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Language
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose 
+\begin_inset Quotes eld
+\end_inset
+
+English
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Setup Component
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose the item you want to relabel.
+\end_layout
+
+\begin_layout Enumerate
+In the 
+\begin_inset Quotes eld
+\end_inset
+
+Object
+\begin_inset Quotes erd
+\end_inset
+
+ dropdown, choose the object that has the item you want to relabel.
+\end_layout
+
+\begin_layout Enumerate
+In the table that is displayed, hover your mouse over the 
+\begin_inset Quotes eld
+\end_inset
+
+Label
+\begin_inset Quotes erd
+\end_inset
+
+ override column in the appropriate row, and click on the pencil icon.
+\end_layout
+
+\begin_layout Enumerate
+Enter the new label you want to use.
+\end_layout
+
+\begin_layout Enumerate
+Repeat this step for all items you want to relabel.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Exporting the Terms to be Translated
+\end_layout
+
+\begin_layout Standard
+If you want to translate Volunteers for Salesforce into a new language,
+ or you want to review all of the translations for a given language, you
+ can export a file with all of the terms to be translated:
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Translation Workbench > Export.
+\end_layout
+
+\begin_layout Enumerate
+Choose 
+\begin_inset Quotes eld
+\end_inset
+
+Bilingual
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Export
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+When the export is complete, you will receive an email notification from
+ Salesforce.
+\end_layout
+
+\begin_layout Enumerate
+Go to the 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset Quotes erd
+\end_inset
+
+ tab.
+\end_layout
+
+\begin_layout Enumerate
+In your 
+\begin_inset Quotes eld
+\end_inset
+
+My Personal Documents
+\begin_inset Quotes erd
+\end_inset
+
+ folder, you will find a zip file.
+\end_layout
+
+\begin_layout Enumerate
+Save the zip file to your computer.
+\end_layout
+
+\begin_layout Enumerate
+Extract the contents of the file to your computer.
+\end_layout
+
+\begin_layout Enumerate
+You will end up with a .stf file for each language enabled in your Salesforce
+ instance.
+ 
+\end_layout
+
+\begin_layout Enumerate
+This is a tab delimited file that you can open in Excel
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Excel will walk you through the steps required to import thise
+ file.
+ In order for Excel to correctly display accented characters, you should
+ change the file's extension, ".stf" to ".txt"}
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Specify 
+\begin_inset Quotes eld
+\end_inset
+
+Tab
+\begin_inset Quotes erd
+\end_inset
+
+ for the delimiter and Unicode (UTF-8) for the the language.
+\end_layout
+
+\begin_layout Enumerate
+The file will contain two sections:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Translated terms
+\end_layout
+
+\begin_layout Enumerate
+Untranslated terms
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+For translated terms, you can update the translation by overwriting the
+ current translation in column C.
+\end_layout
+
+\begin_layout Enumerate
+For untranslated terms, you can specify the translation by overwriting the
+ English term in column B.
+\end_layout
+
+\begin_layout Enumerate
+When you are done translating, save the file
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+sidenote{Excel will ask you if you want to keep the file in its current
+ format.
+ Choose "Yes".}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Close Excel, choose 
+\begin_inset Quotes eld
+\end_inset
+
+No
+\begin_inset Quotes erd
+\end_inset
+
+ if it asks you to save again.
+\end_layout
+
+\begin_layout Enumerate
+Excel introduces a problem that must be fixed:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Open the file you just saved in a text editor.
+\end_layout
+
+\begin_layout Enumerate
+Open the Find and Replace function.
+\end_layout
+
+\begin_layout Enumerate
+In the Find field, type a double quote (
+\begin_inset Quotes eld
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Leave the Replace field empty.
+\end_layout
+
+\begin_layout Enumerate
+Click on 
+\begin_inset Quotes eld
+\end_inset
+
+Replace All
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Choose 
+\begin_inset Quotes eld
+\end_inset
+
+Save as
+\begin_inset Quotes erd
+\end_inset
+
+ from the file menu.
+\end_layout
+
+\begin_layout Enumerate
+Make sure the encoding is set to UTF-8.
+\end_layout
+
+\begin_layout Enumerate
+Click 
+\begin_inset Quotes eld
+\end_inset
+
+Save
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Return to Salesforce to import the file.
+\end_layout
+
+\begin_layout Enumerate
+Go to Setup > Administration Setup > Translation Workbench > Import.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Choose File
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Select the 
+\begin_inset Quotes eld
+\end_inset
+
+.stf
+\begin_inset Quotes erd
+\end_inset
+
+ file from your computer.
+\end_layout
+
+\begin_layout Enumerate
+Click on the 
+\begin_inset Quotes eld
+\end_inset
+
+Import
+\begin_inset Quotes erd
+\end_inset
+
+ button.
+\end_layout
+
+\begin_layout Enumerate
+Salesforce will send you a notification when the operation completes.
+\end_layout
+
+\begin_layout Enumerate
+Check the 
+\begin_inset Quotes eld
+\end_inset
+
+Documents
+\begin_inset Quotes erd
+\end_inset
+
+ tab for any errors.
+\end_layout
+
+\end_body
+\end_document
